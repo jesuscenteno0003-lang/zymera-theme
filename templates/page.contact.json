@@ -1,16 +1,9 @@
 {
   "sections": {
-    "contact-hero": {
-      "type": "hero-banner",
-      "settings": {
-        "subtitle": "Contacto",
-        "title": "Estamos aquí para <span class='zym-highlight'>ayudarte</span>",
-        "description": "¿Tienes preguntas? Nos encantaría escuchar de ti.",
-        "feature_1": "Respuesta rápida",
-        "feature_2": "Soporte dedicado",
-        "feature_3": "Contacto directo"
-      }
+    "page-contact": {
+      "type": "page-contact",
+      "settings": {}
     }
   },
-  "order": ["contact-hero"]
+  "order": ["page-contact"]
 }
