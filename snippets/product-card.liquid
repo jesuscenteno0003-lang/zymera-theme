@@ -3,10 +3,7 @@
     {% if product.featured_image %}
       <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy" class="zym-product-card__img">
     {% else %}
-      <div class="zym-product-card__placeholder">
-        <i class="fas fa-image"></i>
-        <span>Sin imagen</span>
-      </div>
+      <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80" alt="{{ product.title }}" loading="lazy" class="zym-product-card__img">
     {% endif %}
     {% if product.compare_at_price > product.price %}
       <span class="zym-product-badge zym-product-badge--sale">-{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | round }}%</span>

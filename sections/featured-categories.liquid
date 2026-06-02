@@ -13,12 +13,10 @@
     </div>
     <div class="zym-categories-grid">
       {% for block in section.blocks %}
-        <a href="{{ block.settings.link }}" class="zym-category-card" {{ block.shopify_attributes }}>
+        <a href="{{ block.settings.link }}" class="zym-category-card" {{ block.shopify_attributes }} style="{% if block.settings.image != blank %}background-image: url('{{ block.settings.image | image_url: width: 600 }}'); background-size: cover; background-position: center;{% endif %}">
+          <div class="zym-category-overlay"></div>
           <div class="zym-category-icon">
-            <svg viewBox="0 0 100 100" fill="none">
-              <circle cx="50" cy="50" r="45" fill="#4A7C59" fill-opacity="0.1"/>
-              <path d="M50 20C50 20 30 40 30 55C30 66.0457 38.9543 75 50 75C61.0457 75 70 66.0457 70 55C70 40 50 20 50 20Z" fill="#4A7C59"/>
-            </svg>
+            <i class="fas {{ block.settings.icon | default: 'fa-leaf' }}"></i>
           </div>
           <h3>{{ block.settings.title }}</h3>
           {% if block.settings.count != blank %}
@@ -50,7 +48,7 @@
       "type": "text",
       "id": "description",
       "label": "Description",
-      "default": "Encuentra lo que tu cuerpo necesita"
+      "default": "Encuentra lo que tu cuerpo y alma necesitan"
     }
   ],
   "blocks": [
@@ -74,6 +72,17 @@
           "type": "url",
           "id": "link",
           "label": "Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Font Awesome class)",
+          "default": "fa-leaf"
         }
       ]
     }
@@ -86,28 +95,32 @@
           "type": "category",
           "settings": {
             "title": "Aromaterapia",
-            "count": "2 productos"
+            "count": "12 productos",
+            "icon": "fa-spa"
           }
         },
         {
           "type": "category",
           "settings": {
             "title": "Skincare",
-            "count": "2 productos"
+            "count": "15 productos",
+            "icon": "fa-pump-soap"
           }
         },
         {
           "type": "category",
           "settings": {
             "title": "Yoga y Meditacion",
-            "count": "3 productos"
+            "count": "8 productos",
+            "icon": "fa-om"
           }
         },
         {
           "type": "category",
           "settings": {
             "title": "Sueno y Descanso",
-            "count": "2 productos"
+            "count": "10 productos",
+            "icon": "fa-moon"
           }
         }
       ]

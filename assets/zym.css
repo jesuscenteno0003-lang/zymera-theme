@@ -96,6 +96,8 @@ img { max-width: 100%; height: auto; display: block; }
 .zym-category-card:nth-child(3) { background: linear-gradient(135deg, var(--zym-accent) 0%, #A66240 100%); }
 .zym-category-card:nth-child(4) { background: linear-gradient(135deg, #7B6B8D 0%, #5A4D6B 100%); }
 .zym-category-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+.zym-category-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); z-index: 1; transition: all 0.4s; }
+.zym-category-card:hover .zym-category-overlay { background: linear-gradient(180deg, rgba(74,124,89,0.2) 0%, rgba(74,124,89,0.7) 100%); }
 .zym-category-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--zym-white); z-index: 2; transition: all 0.4s; }
 .zym-category-card:hover .zym-category-icon { transform: translate(-50%, -60%) scale(1.1); background: rgba(255,255,255,0.3); }
 .zym-category-card h3 { font-family: var(--zym-font-heading); font-size: 1.125rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--zym-white); z-index: 2; position: relative; }
