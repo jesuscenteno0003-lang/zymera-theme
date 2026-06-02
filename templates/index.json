@@ -7,7 +7,9 @@
         "title": "Nutre tu cuerpo, alimenta tu alma",
         "description": "Descubre productos naturales disenados para elevar tu bienestar diario.",
         "btn_primary_text": "Comprar Ahora",
-        "btn_secondary_text": "Nuestra Historia"
+        "btn_primary_link": "/collections/all",
+        "btn_secondary_text": "Nuestra Historia",
+        "btn_secondary_link": "/pages/about"
       }
     },
     "trust-badges": {
@@ -24,10 +26,10 @@
       "type": "featured-categories",
       "settings": { "subtitle": "Explora", "title": "Nuestras Categorias", "description": "Encuentra lo que tu cuerpo y alma necesitan" },
       "blocks": {
-        "cat-1": { "type": "category", "settings": { "title": "Aromaterapia", "count": "12 productos", "icon": "fa-spa" } },
-        "cat-2": { "type": "category", "settings": { "title": "Skincare", "count": "15 productos", "icon": "fa-pump-soap" } },
-        "cat-3": { "type": "category", "settings": { "title": "Yoga & Meditacion", "count": "8 productos", "icon": "fa-om" } },
-        "cat-4": { "type": "category", "settings": { "title": "Sueno & Descanso", "count": "10 productos", "icon": "fa-moon" } }
+        "cat-1": { "type": "category", "settings": { "title": "Aromaterapia", "count": "12 productos", "icon": "fa-spa", "link": "/collections/aromaterapia" } },
+        "cat-2": { "type": "category", "settings": { "title": "Skincare", "count": "15 productos", "icon": "fa-pump-soap", "link": "/collections/skincare" } },
+        "cat-3": { "type": "category", "settings": { "title": "Yoga & Meditacion", "count": "8 productos", "icon": "fa-om", "link": "/collections/yoga-meditacion" } },
+        "cat-4": { "type": "category", "settings": { "title": "Sueno & Descanso", "count": "10 productos", "icon": "fa-moon", "link": "/collections/sueno-descanso" } }
       },
       "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"]
     },
@@ -40,7 +42,8 @@
         "feature_1": "100% Puro y Natural",
         "feature_2": "Envase de vidrio reciclado",
         "feature_3": "Envio gratis en tu primera orden",
-        "btn_text": "Comprar Ahora"
+        "btn_text": "Comprar Ahora",
+        "btn_link": "/collections/all"
       }
     },
     "featured-products": {
