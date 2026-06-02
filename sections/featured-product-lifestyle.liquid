@@ -1,0 +1,111 @@
+<section class="zym-lifestyle-section">
+  <div class="zym-container">
+    <div class="zym-lifestyle-grid">
+      <div class="zym-lifestyle-content">
+        <span class="zym-subtitle">{{ section.settings.subtitle }}</span>
+        <h2 class="zym-lifestyle-title">{{ section.settings.title }}</h2>
+        <p class="zym-lifestyle-desc">{{ section.settings.description }}</p>
+        <ul class="zym-lifestyle-features">
+          {% if section.settings.feature_1 != blank %}
+            <li><i class="fas fa-check-circle"></i> {{ section.settings.feature_1 }}</li>
+          {% endif %}
+          {% if section.settings.feature_2 != blank %}
+            <li><i class="fas fa-check-circle"></i> {{ section.settings.feature_2 }}</li>
+          {% endif %}
+          {% if section.settings.feature_3 != blank %}
+            <li><i class="fas fa-check-circle"></i> {{ section.settings.feature_3 }}</li>
+          {% endif %}
+        </ul>
+        {% if section.settings.btn_text != blank %}
+          <a href="{{ section.settings.btn_link }}" class="zym-btn zym-btn--primary">{{ section.settings.btn_text }}</a>
+        {% endif %}
+      </div>
+      <div class="zym-lifestyle-images">
+        <div class="zym-lifestyle-img-main">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | image_url: width: 600 }}" alt="{{ section.settings.title }}">
+          {% else %}
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Yoga and wellness">
+          {% endif %}
+        </div>
+        <div class="zym-lifestyle-img-accent">
+          {% if section.settings.image_2 != blank %}
+            <img src="{{ section.settings.image_2 | image_url: width: 300 }}" alt="">
+          {% else %}
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=300&q=80" alt="">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Product Lifestyle",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Producto Destacado"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Aceite Esencial de Lavanda Premium"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Nuestro aceite esencial de lavanda 100% puro, extraido de flores seleccionadas a mano. Perfecto para relajacion, sueno profundo y reduccion del estres."
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Feature 1",
+      "default": "100% Puro y Natural"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Feature 2",
+      "default": "Envase de vidrio reciclado"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Feature 3",
+      "default": "Envio gratis en tu primera orden"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Comprar Ahora"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Accent Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Product Lifestyle"
+    }
+  ]
+}
+{% endschema %}

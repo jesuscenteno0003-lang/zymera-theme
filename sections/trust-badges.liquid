@@ -1,0 +1,89 @@
+<section class="zym-trust-section">
+  <div class="zym-container">
+    <div class="zym-trust-grid">
+      {% for block in section.blocks %}
+        <div class="zym-trust-card" {{ block.shopify_attributes }}>
+          <div class="zym-trust-card__icon">
+            <i class="fas {{ block.settings.icon }}"></i>
+          </div>
+          <div class="zym-trust-card__content">
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Badges",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "trust",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Font Awesome class)",
+          "default": "fa-truck"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Envio Gratis"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "En pedidos mayores a $50"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Badges",
+      "blocks": [
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "fa-truck",
+            "title": "Envio Gratis",
+            "description": "En pedidos mayores a $50"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "fa-shield-alt",
+            "title": "Pago 100% Seguro",
+            "description": "Tus datos estan protegidos"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "fa-undo",
+            "title": "Devolucion 30 Dias",
+            "description": "Sin preguntas, devolucion completa"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "icon": "fa-headset",
+            "title": "Soporte 24/7",
+            "description": "Estamos aqui para ayudarte"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,4 +1,12 @@
 <section class="zym-hero">
+  <div class="zym-hero-bg">
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | image_url: width: 1920 }}" alt="" class="zym-hero-bg-img">
+    {% else %}
+      <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1920&q=80" alt="" class="zym-hero-bg-img">
+    {% endif %}
+    <div class="zym-hero-overlay"></div>
+  </div>
   <div class="zym-hero-grid zym-container">
     <div class="zym-hero-content">
       {% if section.settings.subtitle != blank %}
@@ -15,40 +23,21 @@
           <a href="{{ section.settings.btn_primary_link }}" class="zym-btn zym-btn--primary">{{ section.settings.btn_primary_text }}</a>
         {% endif %}
         {% if section.settings.btn_secondary_text != blank %}
-          <a href="{{ section.settings.btn_secondary_link }}" class="zym-btn zym-btn--secondary">{{ section.settings.btn_secondary_text }}</a>
+          <a href="{{ section.settings.btn_secondary_link }}" class="zym-btn zym-btn--white">{{ section.settings.btn_secondary_text }}</a>
         {% endif %}
       </div>
-      <div class="zym-hero-features">
-        {% if section.settings.feature_1 != blank %}
-          <div class="zym-hero-feature"><i class="fas fa-leaf"></i><span>{{ section.settings.feature_1 }}</span></div>
-        {% endif %}
-        {% if section.settings.feature_2 != blank %}
-          <div class="zym-hero-feature"><i class="fas fa-truck"></i><span>{{ section.settings.feature_2 }}</span></div>
-        {% endif %}
-        {% if section.settings.feature_3 != blank %}
-          <div class="zym-hero-feature"><i class="fas fa-certificate"></i><span>{{ section.settings.feature_3 }}</span></div>
-        {% endif %}
-      </div>
-    </div>
-    <div class="zym-hero-image">
-      <div class="zym-hero-image-container">
-        <div class="zym-hero-image-circle"></div>
-        <div class="zym-hero-image-main">
-          {% if section.settings.image != blank %}
-            <img src="{{ section.settings.image | img_url: '600x600' }}" alt="{{ section.settings.image.alt | default: 'Zymera' }}" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-          {% else %}
-            <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="200" cy="200" r="180" fill="url(#zymgrad)"/>
-              <path d="M200 80C200 80 120 160 120 220C120 264.183 155.817 300 200 300C244.183 300 280 264.183 280 220C280 160 200 80 200 80Z" fill="white" fill-opacity="0.3"/>
-              <path d="M200 120C200 120 150 180 150 220C150 247.614 172.386 270 200 270C227.614 270 250 247.614 250 220C250 180 200 120 200 120Z" fill="white" fill-opacity="0.5"/>
-              <defs>
-                <linearGradient id="zymgrad" x1="200" y1="20" x2="200" y2="380" gradientUnits="userSpaceOnUse">
-                  <stop stop-color="#4A7C59"/>
-                  <stop offset="1" stop-color="#2D5A3D"/>
-                </linearGradient>
-              </defs>
-            </svg>
-          {% endif %}
+      <div class="zym-hero-trust">
+        <div class="zym-hero-trust-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Pago Seguro</span>
+        </div>
+        <div class="zym-hero-trust-item">
+          <i class="fas fa-truck"></i>
+          <span>Envio Gratis +$50</span>
+        </div>
+        <div class="zym-hero-trust-item">
+          <i class="fas fa-undo"></i>
+          <span>Devolucion 30 dias</span>
         </div>
       </div>
     </div>
@@ -75,13 +64,13 @@
       "type": "text",
       "id": "description",
       "label": "Description",
-      "default": "Descubre productos naturales para elevar tu bienestar diario."
+      "default": "Descubre productos naturales disenados para elevar tu bienestar diario."
     },
     {
       "type": "text",
       "id": "btn_primary_text",
       "label": "Primary Button Text",
-      "default": "Explorar Tienda"
+      "default": "Comprar Ahora"
     },
     {
       "type": "url",
@@ -100,27 +89,9 @@
       "label": "Secondary Button Link"
     },
     {
-      "type": "text",
-      "id": "feature_1",
-      "label": "Feature 1",
-      "default": "100% Natural"
-    },
-    {
-      "type": "text",
-      "id": "feature_2",
-      "label": "Feature 2",
-      "default": "Envio Gratis"
-    },
-    {
-      "type": "text",
-      "id": "feature_3",
-      "label": "Feature 3",
-      "default": "Premium Quality"
-    },
-    {
       "type": "image_picker",
       "id": "image",
-      "label": "Hero Image"
+      "label": "Hero Background Image"
     }
   ],
   "presets": [

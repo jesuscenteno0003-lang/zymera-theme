@@ -1,19 +1,39 @@
 <div class="zym-product-card">
-  <a href="{{ product.url }}">
+  <a href="{{ product.url }}" class="zym-product-card__image-wrap">
     {% if product.featured_image %}
-      <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy">
+      <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy" class="zym-product-card__img">
     {% else %}
       <div class="zym-product-card__placeholder">
         <i class="fas fa-image"></i>
+        <span>Sin imagen</span>
       </div>
     {% endif %}
+    {% if product.compare_at_price > product.price %}
+      <span class="zym-product-badge zym-product-badge--sale">-{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | round }}%</span>
+    {% endif %}
+    <span class="zym-product-card__quick-view">Ver Producto</span>
   </a>
   <div class="zym-product-content">
+    <div class="zym-product-card__rating">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star-half-alt"></i>
+      <span>(4.5)</span>
+    </div>
     <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
-    <p class="zym-product-price">{{ product.price | money }}</p>
-    <form method="post" action="/cart/add">
+    <div class="zym-product-card__price">
+      <span class="zym-product-price">{{ product.price | money }}</span>
+      {% if product.compare_at_price > product.price %}
+        <span class="zym-product-price--compare">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
+    <form method="post" action="/cart/add" class="zym-product-card__form">
       <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-      <button type="submit" class="zym-btn zym-btn--primary zym-add-to-cart">Agregar al Carrito</button>
+      <button type="submit" class="zym-btn zym-btn--primary zym-add-to-cart">
+        <i class="fas fa-shopping-cart"></i> Agregar al Carrito
+      </button>
     </form>
   </div>
 </div>

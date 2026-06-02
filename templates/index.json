@@ -5,13 +5,20 @@
       "settings": {
         "subtitle": "Bienvenido a tu Buena Vida",
         "title": "Nutre tu cuerpo, alimenta tu alma",
-        "description": "Descubre productos naturales disenados para elevar tu bienestar diario. Conecta con tu esencia.",
-        "btn_primary_text": "Explorar Tienda",
-        "btn_secondary_text": "Nuestra Historia",
-        "feature_1": "100% Natural",
-        "feature_2": "Envio Gratis",
-        "feature_3": "Premium Quality"
+        "description": "Descubre productos naturales disenados para elevar tu bienestar diario.",
+        "btn_primary_text": "Comprar Ahora",
+        "btn_secondary_text": "Nuestra Historia"
       }
+    },
+    "trust-badges": {
+      "type": "trust-badges",
+      "blocks": {
+        "tb-1": { "type": "trust", "settings": { "icon": "fa-truck", "title": "Envio Gratis", "description": "En pedidos mayores a $50" } },
+        "tb-2": { "type": "trust", "settings": { "icon": "fa-shield-alt", "title": "Pago 100% Seguro", "description": "Tus datos estan protegidos" } },
+        "tb-3": { "type": "trust", "settings": { "icon": "fa-undo", "title": "Devolucion 30 Dias", "description": "Sin preguntas, devolucion completa" } },
+        "tb-4": { "type": "trust", "settings": { "icon": "fa-headset", "title": "Soporte 24/7", "description": "Estamos aqui para ayudarte" } }
+      },
+      "block_order": ["tb-1", "tb-2", "tb-3", "tb-4"]
     },
     "featured-categories": {
       "type": "featured-categories",
@@ -23,6 +30,18 @@
         "cat-4": { "type": "category", "settings": { "title": "Sueno & Descanso", "count": "10 productos" } }
       },
       "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"]
+    },
+    "featured-product-lifestyle": {
+      "type": "featured-product-lifestyle",
+      "settings": {
+        "subtitle": "Producto Destacado",
+        "title": "Aceite Esencial de Lavanda Premium",
+        "description": "Nuestro aceite esencial de lavanda 100% puro, extraido de flores seleccionadas a mano. Perfecto para relajacion, sueno profundo y reduccion del estres.",
+        "feature_1": "100% Puro y Natural",
+        "feature_2": "Envase de vidrio reciclado",
+        "feature_3": "Envio gratis en tu primera orden",
+        "btn_text": "Comprar Ahora"
+      }
     },
     "featured-products": {
       "type": "featured-products",
@@ -42,9 +61,9 @@
       "type": "testimonials",
       "settings": { "subtitle": "Testimonios", "title": "Lo que Dicen Nuestros Clientes" },
       "blocks": {
-        "test-1": { "type": "testimonial", "settings": { "text": "El aceite de lavanda ha transformado mis noches.", "initials": "MG", "name": "Maria Garcia", "location": "Ciudad de Mexico" } },
-        "test-2": { "type": "testimonial", "settings": { "text": "El serum de vitamina C es mi favorito.", "initials": "LR", "name": "Laura Rodriguez", "location": "Bogota" } },
-        "test-3": { "type": "testimonial", "settings": { "text": "El cojin de meditacion ha elevado mi practica.", "initials": "CM", "name": "Carlos Mendoza", "location": "Lima" } }
+        "test-1": { "type": "testimonial", "settings": { "text": "El aceite de lavanda ha transformado mis noches. Duermo como nunca antes.", "initials": "MG", "name": "Maria Garcia", "location": "Ciudad de Mexico" } },
+        "test-2": { "type": "testimonial", "settings": { "text": "El serum de vitamina C es mi favorito. Mi piel nunca se ha visto tan bien.", "initials": "LR", "name": "Laura Rodriguez", "location": "Bogota" } },
+        "test-3": { "type": "testimonial", "settings": { "text": "El cojin de meditacion ha elevado mi practica. Excelente calidad.", "initials": "CM", "name": "Carlos Mendoza", "location": "Lima" } }
       },
       "block_order": ["test-1", "test-2", "test-3"]
     },
@@ -53,5 +72,5 @@
       "settings": { "title": "Unete a Nuestra Comunidad", "description": "Tips de bienestar, ofertas exclusivas y novedades", "btn_text": "Suscribirme" }
     }
   },
-  "order": ["hero-banner", "featured-categories", "featured-products", "benefits", "testimonials", "newsletter"]
+  "order": ["hero-banner", "trust-badges", "featured-categories", "featured-product-lifestyle", "featured-products", "benefits", "testimonials", "newsletter"]
 }
