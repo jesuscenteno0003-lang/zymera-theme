@@ -25,7 +25,55 @@
     {{ content_for_layout }}
   </main>
 
-  {% section 'zym-footer' %}
+  <footer class="zym-footer">
+    <div class="zym-container">
+      <div class="zym-footer-grid">
+        <div class="zym-footer-brand">
+          <a href="/" class="zym-footer-logo">
+            <span class="zym-footer-logo-text">Zymera</span>
+          </a>
+          <p class="zym-footer-tagline">Tu bienestar comienza aqui.</p>
+          <div class="zym-footer-social">
+            <a href="#" class="zym-social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="zym-social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="zym-footer-col">
+          <h4 class="zym-footer-title">Tienda</h4>
+          <ul class="zym-footer-list">
+            <li><a href="/collections/aromaterapia">Aromaterapia</a></li>
+            <li><a href="/collections/skincare">Skincare</a></li>
+            <li><a href="/collections/yoga-meditacion">Yoga & Meditacion</a></li>
+            <li><a href="/collections/sueno-descanso">Sueno & Descanso</a></li>
+          </ul>
+        </div>
+        <div class="zym-footer-col">
+          <h4 class="zym-footer-title">Empresa</h4>
+          <ul class="zym-footer-list">
+            <li><a href="/pages/about">Nuestra Historia</a></li>
+            <li><a href="/pages/contact">Contacto</a></li>
+            <li><a href="/blogs/blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="zym-footer-col">
+          <h4 class="zym-footer-title">Contacto</h4>
+          <ul class="zym-footer-list zym-footer-contact">
+            <li><i class="fas fa-envelope"></i> hola@zymera.com</li>
+            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          </ul>
+        </div>
+      </div>
+      <div class="zym-footer-bottom">
+        <p class="zym-footer-copy">&copy; 2026 Zymera. Todos los derechos reservados.</p>
+        <div class="zym-footer-payment">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-amex"></i>
+          <i class="fab fa-cc-paypal"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   {{ 'zym.js' | asset_url | script_tag }}
 </body>
