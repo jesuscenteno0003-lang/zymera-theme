@@ -30,7 +30,8 @@
 </header>
 
 <style>
-  .zym-nav-link { font-family: var(--zym-font-body); font-size: 0.9375rem; font-weight: 500; color: var(--zym-gray-700); padding: 0.5rem 1rem; transition: color 0.3s; }
+  .zym-nav-list { display: flex; align-items: center; gap: 0; list-style: none; }
+  .zym-nav-link { font-family: var(--zym-font-body); font-size: 0.9375rem; font-weight: 500; color: var(--zym-gray-700); padding: 0.5rem 1rem; transition: color 0.3s; display: block; }
   .zym-nav-link:hover { color: var(--zym-primary); }
   .zym-nav-actions { display: flex; align-items: center; gap: 1.25rem; }
   .zym-nav-cart { position: relative; font-size: 1.125rem; color: var(--zym-gray-700); }
@@ -41,7 +42,7 @@
   @media (max-width: 768px) {
     .zym-nav-toggle { display: block; }
     .zym-nav-close { display: block; }
-    .zym-nav-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--zym-white); box-shadow: -4px 0 20px rgba(0,0,0,0.15); z-index: 1000; padding: 4rem 2rem 2rem; transition: right 0.3s ease; }
+    .zym-nav-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--zym-white); box-shadow: -4px 0 20px rgba(0,0,0,0.15); z-index: 1000; padding: 4rem 2rem 2rem; transition: right 0.3s ease; overflow-y: auto; }
     .zym-nav-menu.active { right: 0; }
     .zym-nav-list { flex-direction: column; gap: 0; }
     .zym-nav-list li { border-bottom: 1px solid var(--zym-gray-200); }

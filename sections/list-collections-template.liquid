@@ -1,0 +1,28 @@
+<section class="zym-collection-page zym-container">
+  <div class="zym-section-header" style="padding-top: 100px;">
+    <h1 class="zym-title">Tienda</h1>
+    <p class="zym-desc">Explora todas nuestras categorias</p>
+  </div>
+
+  <div class="zym-categories-grid">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        <a href="{{ collection.url }}" class="zym-category-card">
+          <div class="zym-category-overlay"></div>
+          <div class="zym-category-icon">
+            <i class="fas fa-collection"></i>
+          </div>
+          <h3>{{ collection.title }}</h3>
+          <span class="zym-category-count">{{ collection.products_count }} productos</span>
+        </a>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "List Collections",
+  "settings": []
+}
+{% endschema %}
