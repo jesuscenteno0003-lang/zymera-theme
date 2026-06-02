@@ -1,0 +1,117 @@
+<section class="zym-section">
+  <div class="zym-container">
+    <div class="zym-section-header">
+      {% if section.settings.subtitle != blank %}
+        <span class="zym-subtitle">{{ section.settings.subtitle }}</span>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="zym-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="zym-desc">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+    <div class="zym-categories-grid">
+      {% for block in section.blocks %}
+        <a href="{{ block.settings.link }}" class="zym-category-card" {{ block.shopify_attributes }}>
+          <div class="zym-category-icon">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="45" fill="#4A7C59" fill-opacity="0.1"/>
+              <path d="M50 20C50 20 30 40 30 55C30 66.0457 38.9543 75 50 75C61.0457 75 70 66.0457 70 55C70 40 50 20 50 20Z" fill="#4A7C59"/>
+            </svg>
+          </div>
+          <h3>{{ block.settings.title }}</h3>
+          {% if block.settings.count != blank %}
+            <span class="zym-category-count">{{ block.settings.count }}</span>
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Categories",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Explora"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Nuestras Categorias"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Encuentra lo que tu cuerpo necesita"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Aromaterapia"
+        },
+        {
+          "type": "text",
+          "id": "count",
+          "label": "Count",
+          "default": "12 productos"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Categories",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "title": "Aromaterapia",
+            "count": "2 productos"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Skincare",
+            "count": "2 productos"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Yoga y Meditacion",
+            "count": "3 productos"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "title": "Sueno y Descanso",
+            "count": "2 productos"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

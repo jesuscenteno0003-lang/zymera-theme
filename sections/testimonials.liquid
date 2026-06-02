@@ -1,0 +1,119 @@
+<section class="zym-section">
+  <div class="zym-container">
+    <div class="zym-section-header">
+      {% if section.settings.subtitle != blank %}
+        <span class="zym-subtitle">{{ section.settings.subtitle }}</span>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="zym-title">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+    <div class="zym-testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="zym-testimonial-card" {{ block.shopify_attributes }}>
+          <div class="zym-testimonial-stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="zym-testimonial-text">{{ block.settings.text }}</p>
+          <div class="zym-testimonial-author">
+            <div class="zym-testimonial-avatar">{{ block.settings.initials }}</div>
+            <div>
+              <span class="zym-testimonial-name">{{ block.settings.name }}</span>
+              <span class="zym-testimonial-location">{{ block.settings.location }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Testimonios"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Lo que Dicen Nuestros Clientes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Excelente producto, mi vida ha mejorado."
+        },
+        {
+          "type": "text",
+          "id": "initials",
+          "label": "Initials",
+          "default": "MG"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Maria Garcia"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Ciudad de Mexico"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "El aceite de lavanda ha transformado mis noches.",
+            "initials": "MG",
+            "name": "Maria Garcia",
+            "location": "Ciudad de Mexico"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "El serum de vitamina C es mi favorito.",
+            "initials": "LR",
+            "name": "Laura Rodriguez",
+            "location": "Bogota"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "El cojin de meditacion ha elevado mi practica.",
+            "initials": "CM",
+            "name": "Carlos Mendoza",
+            "location": "Lima"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

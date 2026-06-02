@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "about-hero": {
+      "type": "hero-banner",
+      "settings": {
+        "subtitle": "Nuestra Historia",
+        "title": "Conectando con tu <span class='zym-highlight'>esencia</span>",
+        "description": "Zymera nació del deseo de ofrecer productos naturales que nutran tanto el cuerpo como el alma.",
+        "btn_primary_text": "Explorar Tienda",
+        "feature_1": "Origen Natural",
+        "feature_2": "Comunidad",
+        "feature_3": "Bienestar"
+      }
+    }
+  },
+  "order": ["about-hero"]
+}

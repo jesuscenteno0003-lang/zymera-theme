@@ -1,0 +1,87 @@
+<section class="zym-section zym-section--gray">
+  <div class="zym-container">
+    <div class="zym-benefits-grid">
+      {% for block in section.blocks %}
+        <div class="zym-benefit-card" {{ block.shopify_attributes }}>
+          <div class="zym-benefit-icon">
+            <i class="fas {{ block.settings.icon }}"></i>
+          </div>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "fa-leaf"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "100% Natural"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Ingredientes naturales y organicos"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "fa-leaf",
+            "title": "100% Natural",
+            "description": "Ingredientes naturales en cada producto"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "fa-truck",
+            "title": "Envio Gratis",
+            "description": "Envio gratuito en pedidos mayores a $50"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "fa-shield-alt",
+            "title": "Garantia Total",
+            "description": "Devolucion sin preguntas"
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "fa-headset",
+            "title": "Soporte 24/7",
+            "description": "Estamos aqui para ayudarte"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

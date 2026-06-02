@@ -1,0 +1,75 @@
+<section class="zym-section">
+  <div class="zym-container">
+    <div class="zym-section-header">
+      {% if section.settings.subtitle != blank %}
+        <span class="zym-subtitle">{{ section.settings.subtitle }}</span>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="zym-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="zym-desc">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+    <div class="zym-products-grid">
+      {% for product in collections[section.settings.collection].products limit: section.settings.products_to_show %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+    {% if section.settings.btn_text != blank %}
+      <div class="zym-products-cta">
+        <a href="/collections/all" class="zym-btn zym-btn--primary">{{ section.settings.btn_text }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Destacados"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Productos Populares"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Lo que nuestros clientes mas aman"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Ver Todos los Productos"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

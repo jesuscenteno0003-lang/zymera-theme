@@ -1,0 +1,52 @@
+<section class="zym-section zym-newsletter">
+  <div class="zym-container">
+    <div class="zym-newsletter-inner">
+      <div>
+        {% if section.settings.title != blank %}
+          <h2 class="zym-newsletter-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <p class="zym-newsletter-desc">{{ section.settings.description }}</p>
+        {% endif %}
+      </div>
+      <form class="zym-newsletter-form">
+        <div class="zym-newsletter-input-group">
+          <input type="email" class="zym-newsletter-input" placeholder="Tu correo electronico" required>
+          <button type="submit" class="zym-btn zym-btn--primary">{{ section.settings.btn_text }}</button>
+        </div>
+        <p class="zym-newsletter-privacy">Respetamos tu privacidad.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Unete a Nuestra Comunidad"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Description",
+      "default": "Tips de bienestar y ofertas exclusivas"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text",
+      "default": "Suscribirme"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

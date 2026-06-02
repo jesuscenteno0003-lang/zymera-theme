@@ -1,0 +1,19 @@
+<div class="zym-product-card">
+  <a href="{{ product.url }}">
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy">
+    {% else %}
+      <div class="zym-product-card__placeholder">
+        <i class="fas fa-image"></i>
+      </div>
+    {% endif %}
+  </a>
+  <div class="zym-product-content">
+    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="zym-product-price">{{ product.price | money }}</p>
+    <form method="post" action="/cart/add">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <button type="submit" class="zym-btn zym-btn--primary zym-add-to-cart">Agregar al Carrito</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<header class="zym-header">
+  <nav class="zym-nav zym-container">
+    <a href="/" class="zym-logo">
+      <span class="zym-logo-text">{{ section.settings.logo_text }}</span>
+    </a>
+
+    <div class="zym-nav-menu" id="zym-nav-menu">
+      <ul class="zym-nav-list">
+        {% for link in linklists[section.settings.menu].links %}
+          <li>
+            <a href="{{ link.url }}" class="zym-nav-link">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      <button class="zym-nav-close" id="zym-nav-close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div class="zym-nav-actions">
+      <a href="/cart" class="zym-nav-cart">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="zym-cart-count">{{ cart.item_count }}</span>
+      </a>
+      <button class="zym-nav-toggle" id="zym-nav-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .zym-nav-link { font-family: var(--zym-font-body); font-size: 0.9375rem; font-weight: 500; color: var(--zym-gray-700); padding: 0.5rem 1rem; transition: color 0.3s; }
+  .zym-nav-link:hover { color: var(--zym-primary); }
+  .zym-nav-actions { display: flex; align-items: center; gap: 1.25rem; }
+  .zym-nav-cart { position: relative; font-size: 1.125rem; color: var(--zym-gray-700); }
+  .zym-nav-cart:hover { color: var(--zym-primary); }
+  .zym-cart-count { position: absolute; top: -8px; right: -10px; background: var(--zym-primary); color: var(--zym-white); font-size: 0.75rem; font-weight: 600; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+  .zym-nav-toggle { display: none; background: none; border: none; font-size: 1.25rem; color: var(--zym-gray-700); cursor: pointer; }
+  .zym-nav-close { display: none; background: none; border: none; font-size: 1.5rem; color: var(--zym-gray-700); cursor: pointer; position: absolute; top: 1rem; right: 1rem; }
+  @media (max-width: 768px) {
+    .zym-nav-toggle { display: block; }
+    .zym-nav-close { display: block; }
+    .zym-nav-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--zym-white); box-shadow: -4px 0 20px rgba(0,0,0,0.15); z-index: 1000; padding: 4rem 2rem 2rem; transition: right 0.3s ease; }
+    .zym-nav-menu.active { right: 0; }
+    .zym-nav-list { flex-direction: column; gap: 0; }
+    .zym-nav-list li { border-bottom: 1px solid var(--zym-gray-200); }
+    .zym-nav-link { display: block; padding: 1rem 0; font-size: 1.0625rem; }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo Text",
+      "default": "Zymera"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}
