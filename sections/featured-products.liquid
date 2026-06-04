@@ -2,13 +2,13 @@
   <div class="zym-container">
     <div class="zym-section-header">
       {% if section.settings.subtitle != blank %}
-        <span class="zym-subtitle">{{ section.settings.subtitle }}</span>
+        <span class="zym-section-subtitle">{{ section.settings.subtitle }}</span>
       {% endif %}
       {% if section.settings.title != blank %}
-        <h2 class="zym-title">{{ section.settings.title }}</h2>
+        <h2 class="zym-section-title">{{ section.settings.title }}</h2>
       {% endif %}
       {% if section.settings.description != blank %}
-        <p class="zym-desc">{{ section.settings.description }}</p>
+        <p class="zym-section-desc">{{ section.settings.description }}</p>
       {% endif %}
     </div>
     <div class="zym-products-grid">
@@ -28,48 +28,13 @@
 {
   "name": "Featured Products",
   "settings": [
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Destacados"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Productos Populares"
-    },
-    {
-      "type": "text",
-      "id": "description",
-      "label": "Description",
-      "default": "Lo que nuestros clientes mas aman"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "label": "Products to show",
-      "min": 2,
-      "max": 12,
-      "default": 4
-    },
-    {
-      "type": "text",
-      "id": "btn_text",
-      "label": "Button Text",
-      "default": "Ver Todos los Productos"
-    }
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Curados por Expertos" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Lo Que Nuestros Clientes Eligen" },
+    { "type": "text", "id": "description", "label": "Description", "default": "Productos seleccionados por su calidad excepcional y resultados comprobados." },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "products_to_show", "label": "Products to show", "min": 2, "max": 12, "default": 4 },
+    { "type": "text", "id": "btn_text", "label": "Button Text", "default": "Ver Coleccion Completa" }
   ],
-  "presets": [
-    {
-      "name": "Featured Products"
-    }
-  ]
+  "presets": [ { "name": "Featured Products" } ]
 }
 {% endschema %}

@@ -1,20 +1,20 @@
-<section class="zym-section zym-newsletter">
-  <div class="zym-container">
+<section class="zym-section zym-newsletter" style="background:linear-gradient(135deg,#1A1A1A 0%,#0D1F12 50%,#2D5A3D 100%);color:#fff;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-30%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%);border-radius:50%;"></div>
+  <div style="position:absolute;bottom:-40%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(74,124,89,0.1) 0%,transparent 70%);border-radius:50%;"></div>
+  <div class="zym-container" style="position:relative;z-index:1;">
     <div class="zym-newsletter-inner">
-      <div>
-        {% if section.settings.title != blank %}
-          <h2 class="zym-newsletter-title">{{ section.settings.title }}</h2>
-        {% endif %}
-        {% if section.settings.description != blank %}
-          <p class="zym-newsletter-desc">{{ section.settings.description }}</p>
-        {% endif %}
-      </div>
+      {% if section.settings.title != blank %}
+        <h2 class="zym-newsletter-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p class="zym-newsletter-desc">{{ section.settings.description }}</p>
+      {% endif %}
       <form class="zym-newsletter-form">
         <div class="zym-newsletter-input-group">
           <input type="email" class="zym-newsletter-input" placeholder="Tu correo electronico" required>
-          <button type="submit" class="zym-btn zym-btn--primary">{{ section.settings.btn_text }}</button>
+          <button type="submit" class="zym-btn zym-btn--gold" style="padding:1rem 2.25rem;">{{ section.settings.btn_text }}</button>
         </div>
-        <p class="zym-newsletter-privacy">Respetamos tu privacidad.</p>
+        <p class="zym-newsletter-privacy">Sin spam. Solo bienestar. Puedes darte de baja cuando quieras.</p>
       </form>
     </div>
   </div>
@@ -24,29 +24,10 @@
 {
   "name": "Newsletter",
   "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Unete a Nuestra Comunidad"
-    },
-    {
-      "type": "text",
-      "id": "description",
-      "label": "Description",
-      "default": "Tips de bienestar y ofertas exclusivas"
-    },
-    {
-      "type": "text",
-      "id": "btn_text",
-      "label": "Button Text",
-      "default": "Suscribirme"
-    }
+    { "type": "text", "id": "title", "label": "Title", "default": "Unete al Circulo Zymera" },
+    { "type": "text", "id": "description", "label": "Description", "default": "Recibe guias de bienestar, acceso anticipado a lanzamientos y 10% de descuento en tu primera compra." },
+    { "type": "text", "id": "btn_text", "label": "Button Text", "default": "Suscribirme" }
   ],
-  "presets": [
-    {
-      "name": "Newsletter"
-    }
-  ]
+  "presets": [ { "name": "Newsletter" } ]
 }
 {% endschema %}

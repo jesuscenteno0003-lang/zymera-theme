@@ -1,4 +1,4 @@
-<section class="zym-trust-section">
+<section class="zym-trust-section" style="background:#fff;padding:3rem 0;border-bottom:1px solid rgba(0,0,0,0.04);">
   <div class="zym-container">
     <div class="zym-trust-grid">
       {% for block in section.blocks %}
@@ -25,24 +25,9 @@
       "type": "trust",
       "name": "Trust Badge",
       "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon (Font Awesome class)",
-          "default": "fa-truck"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Envio Gratis"
-        },
-        {
-          "type": "text",
-          "id": "description",
-          "label": "Description",
-          "default": "En pedidos mayores a $50"
-        }
+        { "type": "text", "id": "icon", "label": "Icon (Font Awesome class)", "default": "fa-truck" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Envio Gratis" },
+        { "type": "text", "id": "description", "label": "Description", "default": "En pedidos mayores a $50" }
       ]
     }
   ],
@@ -50,38 +35,10 @@
     {
       "name": "Trust Badges",
       "blocks": [
-        {
-          "type": "trust",
-          "settings": {
-            "icon": "fa-truck",
-            "title": "Envio Gratis",
-            "description": "En pedidos mayores a $50"
-          }
-        },
-        {
-          "type": "trust",
-          "settings": {
-            "icon": "fa-shield-alt",
-            "title": "Pago 100% Seguro",
-            "description": "Tus datos estan protegidos"
-          }
-        },
-        {
-          "type": "trust",
-          "settings": {
-            "icon": "fa-undo",
-            "title": "Devolucion 30 Dias",
-            "description": "Sin preguntas, devolucion completa"
-          }
-        },
-        {
-          "type": "trust",
-          "settings": {
-            "icon": "fa-headset",
-            "title": "Soporte 24/7",
-            "description": "Estamos aqui para ayudarte"
-          }
-        }
+        { "type": "trust", "settings": { "icon": "fa-truck", "title": "Envio Premium", "description": "Gratis en pedidos +$50" } },
+        { "type": "trust", "settings": { "icon": "fa-shield-alt", "title": "Pago Seguro", "description": "Cifrado SSL 256-bit" } },
+        { "type": "trust", "settings": { "icon": "fa-undo", "title": "Garantia 30 Dias", "description": "Devolucion completa" } },
+        { "type": "trust", "settings": { "icon": "fa-leaf", "title": "100% Natural", "description": "Ingredientes premium" } }
       ]
     }
   ]

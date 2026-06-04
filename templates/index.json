@@ -1,78 +1,101 @@
 {
   "sections": {
     "hero-banner": {
-      "type": "hero-banner",
-      "settings": {
-        "subtitle": "Bienvenido a tu Buena Vida",
-        "title": "Nutre tu cuerpo, alimenta tu alma",
-        "description": "Descubre productos naturales disenados para elevar tu bienestar diario.",
-        "btn_primary_text": "Comprar Ahora",
-        "btn_primary_link": "/collections/all",
-        "btn_secondary_text": "Nuestra Historia",
-        "btn_secondary_link": "/pages/about"
-      }
+      "type": "hero-banner"
     },
     "trust-badges": {
       "type": "trust-badges",
       "blocks": {
-        "tb-1": { "type": "trust", "settings": { "icon": "fa-truck", "title": "Envio Gratis", "description": "En pedidos mayores a $50" } },
-        "tb-2": { "type": "trust", "settings": { "icon": "fa-shield-alt", "title": "Pago 100% Seguro", "description": "Tus datos estan protegidos" } },
-        "tb-3": { "type": "trust", "settings": { "icon": "fa-undo", "title": "Devolucion 30 Dias", "description": "Sin preguntas, devolucion completa" } },
-        "tb-4": { "type": "trust", "settings": { "icon": "fa-headset", "title": "Soporte 24/7", "description": "Estamos aqui para ayudarte" } }
+        "tb-1": { "type": "trust", "settings": { "icon": "fa-truck", "title": "Envio Premium", "description": "Gratis en pedidos +$50" } },
+        "tb-2": { "type": "trust", "settings": { "icon": "fa-shield-alt", "title": "Pago Seguro", "description": "Cifrado SSL 256-bit" } },
+        "tb-3": { "type": "trust", "settings": { "icon": "fa-undo", "title": "Garantia 30 Dias", "description": "Devolucion completa" } },
+        "tb-4": { "type": "trust", "settings": { "icon": "fa-leaf", "title": "100% Natural", "description": "Ingredientes premium" } }
       },
       "block_order": ["tb-1", "tb-2", "tb-3", "tb-4"]
     },
     "featured-categories": {
-      "type": "featured-categories",
-      "settings": { "subtitle": "Explora", "title": "Nuestras Categorias", "description": "Encuentra lo que tu cuerpo y alma necesitan" },
-      "blocks": {
-        "cat-1": { "type": "category", "settings": { "title": "Aromaterapia", "count": "12 productos", "icon": "fa-spa", "link": "/collections/aromaterapia" } },
-        "cat-2": { "type": "category", "settings": { "title": "Skincare", "count": "15 productos", "icon": "fa-pump-soap", "link": "/collections/skincare" } },
-        "cat-3": { "type": "category", "settings": { "title": "Yoga & Meditacion", "count": "8 productos", "icon": "fa-om", "link": "/collections/yoga-meditacion" } },
-        "cat-4": { "type": "category", "settings": { "title": "Sueno & Descanso", "count": "10 productos", "icon": "fa-moon", "link": "/collections/sueno-descanso" } }
-      },
-      "block_order": ["cat-1", "cat-2", "cat-3", "cat-4"]
+      "type": "featured-categories"
     },
     "featured-product-lifestyle": {
       "type": "featured-product-lifestyle",
       "settings": {
-        "subtitle": "Producto Destacado",
-        "title": "Aceite Esencial de Lavanda Premium",
-        "description": "Nuestro aceite esencial de lavanda 100% puro, extraido de flores seleccionadas a mano. Perfecto para relajacion, sueno profundo y reduccion del estres.",
-        "feature_1": "100% Puro y Natural",
-        "feature_2": "Envase de vidrio reciclado",
-        "feature_3": "Envio gratis en tu primera orden",
-        "btn_text": "Comprar Ahora",
-        "btn_link": "/collections/all"
+        "subtitle": "Producto Estrella",
+        "title": "Aceite Esencial de Lavanda — Grado Terapeutico",
+        "description": "Extraido de lavanda francesa de altitud, destilado en frio para preservar sus propiedades calmantes. Un esencial para tu ritual nocturno.",
+        "feature_1": "100% Puro — Sin diluciones ni aditivos",
+        "feature_2": "Destilado en frio, lote a lote",
+        "feature_3": "Envase de vidrio reciclado con dosificador",
+        "btn_text": "Descubrir Ahora",
+        "btn_link": "/collections/aromaterapia"
       }
     },
     "featured-products": {
       "type": "featured-products",
-      "settings": { "subtitle": "Destacados", "title": "Productos Populares", "description": "Lo que nuestros clientes mas aman", "products_to_show": 4, "btn_text": "Ver Todos los Productos" }
+      "settings": {
+        "subtitle": "Curados por Expertos",
+        "title": "Lo Que Nuestros Clientes Eligen",
+        "description": "Productos seleccionados por su calidad excepcional y resultados comprobados.",
+        "products_to_show": 4,
+        "btn_text": "Ver Coleccion Completa"
+      }
     },
     "benefits": {
       "type": "benefits",
       "blocks": {
-        "ben-1": { "type": "benefit", "settings": { "icon": "fa-leaf", "title": "100% Natural", "description": "Ingredientes naturales y organicos" } },
-        "ben-2": { "type": "benefit", "settings": { "icon": "fa-truck", "title": "Envio Gratis", "description": "Envio gratuito en pedidos > $50" } },
-        "ben-3": { "type": "benefit", "settings": { "icon": "fa-shield-alt", "title": "Garantia Total", "description": "Devolucion sin preguntas" } },
-        "ben-4": { "type": "benefit", "settings": { "icon": "fa-headset", "title": "Soporte 24/7", "description": "Estamos aqui para ayudarte" } }
+        "ben-1": { "type": "benefit", "settings": { "icon": "fa-leaf", "title": "Ingredientes Puros", "description": "Cada ingrediente es seleccionado por su pureza y eficacia comprobada." } },
+        "ben-2": { "type": "benefit", "settings": { "icon": "fa-truck", "title": "Envio Premium", "description": "Envio gratuito en pedidos mayores a $50. Empaque discreto y ecologico." } },
+        "ben-3": { "type": "benefit", "settings": { "icon": "fa-award", "title": "Calidad Certificada", "description": "Libre de parabenos, sulfatos, siliconas y ingredientes sinteticos." } },
+        "ben-4": { "type": "benefit", "settings": { "icon": "fa-heart", "title": "Garantia Total", "description": "Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas." } }
       },
       "block_order": ["ben-1", "ben-2", "ben-3", "ben-4"]
     },
     "testimonials": {
       "type": "testimonials",
-      "settings": { "subtitle": "Testimonios", "title": "Lo que Dicen Nuestros Clientes" },
+      "settings": {
+        "subtitle": "Testimonios",
+        "title": "Lo que Dicen Nuestros Clientes"
+      },
       "blocks": {
-        "test-1": { "type": "testimonial", "settings": { "text": "El aceite de lavanda ha transformado mis noches. Duermo como nunca antes.", "initials": "MG", "name": "Maria Garcia", "location": "Ciudad de Mexico" } },
-        "test-2": { "type": "testimonial", "settings": { "text": "El serum de vitamina C es mi favorito. Mi piel nunca se ha visto tan bien.", "initials": "LR", "name": "Laura Rodriguez", "location": "Bogota" } },
-        "test-3": { "type": "testimonial", "settings": { "text": "El cojin de meditacion ha elevado mi practica. Excelente calidad.", "initials": "CM", "name": "Carlos Mendoza", "location": "Lima" } }
+        "test-1": {
+          "type": "testimonial",
+          "settings": {
+            "text": "El aceite esencial de lavanda transformo mis noches. Duermo profundo y despierto renovada. No es solo un producto, es un ritual que atesoro.",
+            "initials": "MG",
+            "name": "Maria Garcia",
+            "location": "Ciudad de Mexico",
+            "rating": 5
+          }
+        },
+        "test-2": {
+          "type": "testimonial",
+          "settings": {
+            "text": "El serum de vitamina C dejo mi piel con un brillo natural que nunca logre con productos comerciales. La calidad se nota desde la primera aplicacion.",
+            "initials": "LR",
+            "name": "Laura Rodriguez",
+            "location": "Bogota, Colombia",
+            "rating": 5
+          }
+        },
+        "test-3": {
+          "type": "testimonial",
+          "settings": {
+            "text": "Como instructora de yoga, necesito productos que reflejen los mismos valores de calidad y consciencia. Zymera es exactamente eso.",
+            "initials": "CM",
+            "name": "Camila Mendoza",
+            "location": "Lima, Peru",
+            "rating": 5
+          }
+        }
       },
       "block_order": ["test-1", "test-2", "test-3"]
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": { "title": "Unete a Nuestra Comunidad", "description": "Tips de bienestar, ofertas exclusivas y novedades", "btn_text": "Suscribirme" }
+      "settings": {
+        "title": "Unete al Circulo Zymera",
+        "description": "Recibe guias de bienestar, acceso anticipado a lanzamientos y 10% de descuento en tu primera compra.",
+        "btn_text": "Suscribirme"
+      }
     }
   },
   "order": ["hero-banner", "trust-badges", "featured-categories", "featured-product-lifestyle", "featured-products", "benefits", "testimonials", "newsletter"]
