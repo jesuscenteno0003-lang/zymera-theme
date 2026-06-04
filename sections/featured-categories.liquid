@@ -13,7 +13,12 @@
     </div>
     <div class="zym-categories-grid">
       {% for block in section.blocks %}
-        <a href="{{ block.settings.link }}" class="zym-category-card" {{ block.shopify_attributes }} style="{% if block.settings.image != blank %}background-image: url('{{ block.settings.image | image_url: width: 600 }}'); background-size: cover; background-position: center;{% endif %}">
+        {% assign category_images = 'photo-1602928321679-560bb453f190,photo-1556228578-0d85b1a4d571,photo-1544367567-0f2fcb009e0b,photo-1522771739844-6a9f6d5f14af' | split: ',' %}
+        {% assign idx = forloop.index0 | modulo: 4 %}
+        <a href="{{ block.settings.link }}" class="zym-category-card" {{ block.shopify_attributes }}>
+          <div class="zym-category-bg">
+            <img src="{{ category_images[idx] }}?w=600&q=80" alt="{{ block.settings.title }}" loading="lazy">
+          </div>
           <div class="zym-category-overlay"></div>
           <div class="zym-category-icon">
             <i class="fas {{ block.settings.icon | default: 'fa-leaf' }}"></i>
@@ -74,15 +79,10 @@
           "label": "Link"
         },
         {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Background Image"
-        },
-        {
           "type": "text",
           "id": "icon",
           "label": "Icon (Font Awesome class)",
-          "default": "fa-leaf"
+          "default": "fa-spa"
         }
       ]
     }
@@ -96,7 +96,8 @@
           "settings": {
             "title": "Aromaterapia",
             "count": "12 productos",
-            "icon": "fa-spa"
+            "icon": "fa-spa",
+            "link": "/collections/aromaterapia"
           }
         },
         {
@@ -104,7 +105,8 @@
           "settings": {
             "title": "Skincare",
             "count": "15 productos",
-            "icon": "fa-pump-soap"
+            "icon": "fa-pump-soap",
+            "link": "/collections/skincare"
           }
         },
         {
@@ -112,7 +114,8 @@
           "settings": {
             "title": "Yoga y Meditacion",
             "count": "8 productos",
-            "icon": "fa-om"
+            "icon": "fa-om",
+            "link": "/collections/yoga-meditacion"
           }
         },
         {
@@ -120,7 +123,8 @@
           "settings": {
             "title": "Sueno y Descanso",
             "count": "10 productos",
-            "icon": "fa-moon"
+            "icon": "fa-moon",
+            "link": "/collections/sueno-descanso"
           }
         }
       ]

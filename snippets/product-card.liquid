@@ -3,7 +3,9 @@
     {% if product.featured_image %}
       <img src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}" loading="lazy" class="zym-product-card__img">
     {% else %}
-      <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80" alt="{{ product.title }}" loading="lazy" class="zym-product-card__img">
+      {% assign placeholder_images = 'photo-1556228578-0d85b1a4d571,photo-1602928321679-560bb453f190,photo-1544367567-0f2fcb009e0b,photo-1522771739844-6a9f6d5f14af,photo-1506126613408-eca07ce68773,photo-1596178060671-7a80dc8059ea' | split: ',' %}
+      {% assign img_index = product.id | modulo: 6 %}
+      <img src="{{ placeholder_images[img_index] }}?w=400&q=80" alt="{{ product.title }}" loading="lazy" class="zym-product-card__img">
     {% endif %}
     {% if product.compare_at_price > product.price %}
       <span class="zym-product-badge zym-product-badge--sale">-{{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price | round }}%</span>

@@ -90,14 +90,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ===== CATEGORIES ===== */
 .zym-categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-.zym-category-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 2.5rem 1.5rem; min-height: 240px; background: linear-gradient(135deg, var(--zym-primary) 0%, var(--zym-primary-dark) 100%); border-radius: var(--zym-radius-xl); text-align: center; overflow: hidden; transition: all 0.4s ease; cursor: pointer; color: var(--zym-white); }
-.zym-category-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.5) 100%); z-index: 1; transition: all 0.4s; }
-.zym-category-card:nth-child(2) { background: linear-gradient(135deg, var(--zym-secondary) 0%, var(--zym-secondary-dark) 100%); }
-.zym-category-card:nth-child(3) { background: linear-gradient(135deg, var(--zym-accent) 0%, #A66240 100%); }
-.zym-category-card:nth-child(4) { background: linear-gradient(135deg, #7B6B8D 0%, #5A4D6B 100%); }
-.zym-category-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-.zym-category-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); z-index: 1; transition: all 0.4s; }
-.zym-category-card:hover .zym-category-overlay { background: linear-gradient(180deg, rgba(74,124,89,0.2) 0%, rgba(74,124,89,0.7) 100%); }
+.zym-category-card { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 2.5rem 1.5rem; min-height: 320px; border-radius: var(--zym-radius-xl); text-align: center; overflow: hidden; transition: all 0.4s ease; cursor: pointer; color: var(--zym-white); }
+.zym-category-bg { position: absolute; inset: 0; z-index: 0; }
+.zym-category-bg img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.zym-category-card:hover .zym-category-bg img { transform: scale(1.1); }
+.zym-category-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.65) 100%); z-index: 1; transition: all 0.4s; }
+.zym-category-card:hover .zym-category-overlay { background: linear-gradient(180deg, rgba(74,124,89,0.15) 0%, rgba(74,124,89,0.75) 100%); }
+.zym-category-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.25); }
 .zym-category-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -60%); width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--zym-white); z-index: 2; transition: all 0.4s; }
 .zym-category-card:hover .zym-category-icon { transform: translate(-50%, -60%) scale(1.1); background: rgba(255,255,255,0.3); }
 .zym-category-card h3 { font-family: var(--zym-font-heading); font-size: 1.125rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--zym-white); z-index: 2; position: relative; }
