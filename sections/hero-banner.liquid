@@ -1,44 +1,21 @@
 <section class="zym-hero">
   <div class="zym-hero-bg">
-    {% if section.settings.image != blank %}
-      <img src="{{ section.settings.image | image_url: width: 1920 }}" alt="" class="zym-hero-bg-img">
-    {% else %}
-      <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80" alt="Meditation wellness" class="zym-hero-bg-img">
-    {% endif %}
+    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80" alt="Meditation wellness" class="zym-hero-bg-img">
     <div class="zym-hero-overlay"></div>
   </div>
   <div class="zym-hero-grid zym-container">
     <div class="zym-hero-content">
-      {% if section.settings.subtitle != blank %}
-        <span class="zym-hero-subtitle">{{ section.settings.subtitle }}</span>
-      {% endif %}
-      {% if section.settings.title != blank %}
-        <h1 class="zym-hero-title">{{ section.settings.title }}</h1>
-      {% endif %}
-      {% if section.settings.description != blank %}
-        <p class="zym-hero-desc">{{ section.settings.description }}</p>
-      {% endif %}
+      <span class="zym-hero-subtitle">Bienvenido a tu Buena Vida</span>
+      <h1 class="zym-hero-title">Nutre tu cuerpo, alimenta tu alma</h1>
+      <p class="zym-hero-desc">Descubre productos naturales disenados para elevar tu bienestar diario.</p>
       <div class="zym-hero-buttons">
-        {% if section.settings.btn_primary_text != blank %}
-          <a href="{{ section.settings.btn_primary_link }}" class="zym-btn zym-btn--primary">{{ section.settings.btn_primary_text }}</a>
-        {% endif %}
-        {% if section.settings.btn_secondary_text != blank %}
-          <a href="{{ section.settings.btn_secondary_link }}" class="zym-btn zym-btn--white">{{ section.settings.btn_secondary_text }}</a>
-        {% endif %}
+        <a href="/collections/all" class="zym-btn zym-btn--primary">Comprar Ahora</a>
+        <a href="/pages/about" class="zym-btn zym-btn--white">Nuestra Historia</a>
       </div>
       <div class="zym-hero-trust">
-        <div class="zym-hero-trust-item">
-          <i class="fas fa-shield-alt"></i>
-          <span>Pago Seguro</span>
-        </div>
-        <div class="zym-hero-trust-item">
-          <i class="fas fa-truck"></i>
-          <span>Envio Gratis +$50</span>
-        </div>
-        <div class="zym-hero-trust-item">
-          <i class="fas fa-undo"></i>
-          <span>Devolucion 30 dias</span>
-        </div>
+        <div class="zym-hero-trust-item"><i class="fas fa-shield-alt"></i><span>Pago Seguro</span></div>
+        <div class="zym-hero-trust-item"><i class="fas fa-truck"></i><span>Envio Gratis +$50</span></div>
+        <div class="zym-hero-trust-item"><i class="fas fa-undo"></i><span>Devolucion 30 dias</span></div>
       </div>
     </div>
   </div>
@@ -48,56 +25,15 @@
 {
   "name": "Hero Banner",
   "settings": [
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Bienvenido a tu Buena Vida"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Nutre tu cuerpo, alimenta tu alma"
-    },
-    {
-      "type": "text",
-      "id": "description",
-      "label": "Description",
-      "default": "Descubre productos naturales disenados para elevar tu bienestar diario."
-    },
-    {
-      "type": "text",
-      "id": "btn_primary_text",
-      "label": "Primary Button Text",
-      "default": "Comprar Ahora"
-    },
-    {
-      "type": "url",
-      "id": "btn_primary_link",
-      "label": "Primary Button Link"
-    },
-    {
-      "type": "text",
-      "id": "btn_secondary_text",
-      "label": "Secondary Button Text",
-      "default": "Nuestra Historia"
-    },
-    {
-      "type": "url",
-      "id": "btn_secondary_link",
-      "label": "Secondary Button Link"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Hero Background Image"
-    }
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Bienvenido a tu Buena Vida" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Nutre tu cuerpo, alimenta tu alma" },
+    { "type": "text", "id": "description", "label": "Description", "default": "Descubre productos naturales disenados para elevar tu bienestar diario." },
+    { "type": "text", "id": "btn_primary_text", "label": "Primary Button Text", "default": "Comprar Ahora" },
+    { "type": "url", "id": "btn_primary_link", "label": "Primary Button Link" },
+    { "type": "text", "id": "btn_secondary_text", "label": "Secondary Button Text", "default": "Nuestra Historia" },
+    { "type": "url", "id": "btn_secondary_link", "label": "Secondary Button Link" },
+    { "type": "image_picker", "id": "image", "label": "Hero Background Image" }
   ],
-  "presets": [
-    {
-      "name": "Hero Banner"
-    }
-  ]
+  "presets": [ { "name": "Hero Banner" } ]
 }
 {% endschema %}

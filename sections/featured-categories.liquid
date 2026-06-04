@@ -1,34 +1,47 @@
 <section class="zym-section">
   <div class="zym-container">
     <div class="zym-section-header">
-      {% if section.settings.subtitle != blank %}
-        <span class="zym-subtitle">{{ section.settings.subtitle }}</span>
-      {% endif %}
-      {% if section.settings.title != blank %}
-        <h2 class="zym-title">{{ section.settings.title }}</h2>
-      {% endif %}
-      {% if section.settings.description != blank %}
-        <p class="zym-desc">{{ section.settings.description }}</p>
-      {% endif %}
+      <span class="zym-subtitle">Explora</span>
+      <h2 class="zym-title">Nuestras Categorias</h2>
+      <p class="zym-desc">Encuentra lo que tu cuerpo y alma necesitan</p>
     </div>
     <div class="zym-categories-grid">
-      {% for block in section.blocks %}
-        {% assign category_images = 'photo-1602928321679-560bb453f190,photo-1556228578-0d85b1a4d571,photo-1544367567-0f2fcb009e0b,photo-1522771739844-6a9f6d5f14af' | split: ',' %}
-        {% assign idx = forloop.index0 | modulo: 4 %}
-        <a href="{{ block.settings.link }}" class="zym-category-card" {{ block.shopify_attributes }}>
-          <div class="zym-category-bg">
-            <img src="{{ category_images[idx] }}?w=600&q=80" alt="{{ block.settings.title }}" loading="lazy">
-          </div>
-          <div class="zym-category-overlay"></div>
-          <div class="zym-category-icon">
-            <i class="fas {{ block.settings.icon | default: 'fa-leaf' }}"></i>
-          </div>
-          <h3>{{ block.settings.title }}</h3>
-          {% if block.settings.count != blank %}
-            <span class="zym-category-count">{{ block.settings.count }}</span>
-          {% endif %}
-        </a>
-      {% endfor %}
+      <a href="/collections/aromaterapia" class="zym-category-card">
+        <div class="zym-category-bg">
+          <img src="https://images.unsplash.com/photo-1602928321679-560bb453f190?w=600&q=80" alt="Aromaterapia" loading="lazy">
+        </div>
+        <div class="zym-category-overlay"></div>
+        <div class="zym-category-icon"><i class="fas fa-spa"></i></div>
+        <h3>Aromaterapia</h3>
+        <span class="zym-category-count">12 productos</span>
+      </a>
+      <a href="/collections/skincare" class="zym-category-card">
+        <div class="zym-category-bg">
+          <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&q=80" alt="Skincare" loading="lazy">
+        </div>
+        <div class="zym-category-overlay"></div>
+        <div class="zym-category-icon"><i class="fas fa-pump-soap"></i></div>
+        <h3>Skincare</h3>
+        <span class="zym-category-count">15 productos</span>
+      </a>
+      <a href="/collections/yoga-meditacion" class="zym-category-card">
+        <div class="zym-category-bg">
+          <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Yoga" loading="lazy">
+        </div>
+        <div class="zym-category-overlay"></div>
+        <div class="zym-category-icon"><i class="fas fa-om"></i></div>
+        <h3>Yoga & Meditacion</h3>
+        <span class="zym-category-count">8 productos</span>
+      </a>
+      <a href="/collections/sueno-descanso" class="zym-category-card">
+        <div class="zym-category-bg">
+          <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&q=80" alt="Sueno" loading="lazy">
+        </div>
+        <div class="zym-category-overlay"></div>
+        <div class="zym-category-icon"><i class="fas fa-moon"></i></div>
+        <h3>Sueno & Descanso</h3>
+        <span class="zym-category-count">10 productos</span>
+      </a>
     </div>
   </div>
 </section>
@@ -37,98 +50,10 @@
 {
   "name": "Featured Categories",
   "settings": [
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Explora"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Nuestras Categorias"
-    },
-    {
-      "type": "text",
-      "id": "description",
-      "label": "Description",
-      "default": "Encuentra lo que tu cuerpo y alma necesitan"
-    }
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Explora" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Nuestras Categorias" },
+    { "type": "text", "id": "description", "label": "Description", "default": "Encuentra lo que tu cuerpo y alma necesitan" }
   ],
-  "blocks": [
-    {
-      "type": "category",
-      "name": "Category",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Aromaterapia"
-        },
-        {
-          "type": "text",
-          "id": "count",
-          "label": "Count",
-          "default": "12 productos"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
-        },
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon (Font Awesome class)",
-          "default": "fa-spa"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Featured Categories",
-      "blocks": [
-        {
-          "type": "category",
-          "settings": {
-            "title": "Aromaterapia",
-            "count": "12 productos",
-            "icon": "fa-spa",
-            "link": "/collections/aromaterapia"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Skincare",
-            "count": "15 productos",
-            "icon": "fa-pump-soap",
-            "link": "/collections/skincare"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Yoga y Meditacion",
-            "count": "8 productos",
-            "icon": "fa-om",
-            "link": "/collections/yoga-meditacion"
-          }
-        },
-        {
-          "type": "category",
-          "settings": {
-            "title": "Sueno y Descanso",
-            "count": "10 productos",
-            "icon": "fa-moon",
-            "link": "/collections/sueno-descanso"
-          }
-        }
-      ]
-    }
-  ]
+  "presets": [ { "name": "Featured Categories" } ]
 }
 {% endschema %}
