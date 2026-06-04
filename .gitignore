@@ -1,7 +1,0 @@
-# Shopify theme
-config/settings_data.json
-*.log
-.DS_Store
-Thumbs.db
-node_modules/
-.env

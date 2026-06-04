@@ -1,102 +1,237 @@
 {
   "sections": {
-    "hero-banner": {
-      "type": "hero-banner"
-    },
-    "trust-badges": {
-      "type": "trust-badges",
+    "image_banner": {
+      "type": "image-banner",
       "blocks": {
-        "tb-1": { "type": "trust", "settings": { "icon": "fa-truck", "title": "Envio Premium", "description": "Gratis en pedidos +$50" } },
-        "tb-2": { "type": "trust", "settings": { "icon": "fa-shield-alt", "title": "Pago Seguro", "description": "Cifrado SSL 256-bit" } },
-        "tb-3": { "type": "trust", "settings": { "icon": "fa-undo", "title": "Garantia 30 Dias", "description": "Devolucion completa" } },
-        "tb-4": { "type": "trust", "settings": { "icon": "fa-leaf", "title": "100% Natural", "description": "Ingredientes premium" } }
-      },
-      "block_order": ["tb-1", "tb-2", "tb-3", "tb-4"]
-    },
-    "featured-categories": {
-      "type": "featured-categories"
-    },
-    "featured-product-lifestyle": {
-      "type": "featured-product-lifestyle",
-      "settings": {
-        "subtitle": "Producto Estrella",
-        "title": "Aceite Esencial de Lavanda — Grado Terapeutico",
-        "description": "Extraido de lavanda francesa de altitud, destilado en frio para preservar sus propiedades calmantes. Un esencial para tu ritual nocturno.",
-        "feature_1": "100% Puro — Sin diluciones ni aditivos",
-        "feature_2": "Destilado en frio, lote a lote",
-        "feature_3": "Envase de vidrio reciclado con dosificador",
-        "btn_text": "Descubrir Ahora",
-        "btn_link": "/collections/aromaterapia"
-      }
-    },
-    "featured-products": {
-      "type": "featured-products",
-      "settings": {
-        "subtitle": "Curados por Expertos",
-        "title": "Lo Que Nuestros Clientes Eligen",
-        "description": "Productos seleccionados por su calidad excepcional y resultados comprobados.",
-        "products_to_show": 4,
-        "btn_text": "Ver Coleccion Completa"
-      }
-    },
-    "benefits": {
-      "type": "benefits",
-      "blocks": {
-        "ben-1": { "type": "benefit", "settings": { "icon": "fa-leaf", "title": "Ingredientes Puros", "description": "Cada ingrediente es seleccionado por su pureza y eficacia comprobada." } },
-        "ben-2": { "type": "benefit", "settings": { "icon": "fa-truck", "title": "Envio Premium", "description": "Envio gratuito en pedidos mayores a $50. Empaque discreto y ecologico." } },
-        "ben-3": { "type": "benefit", "settings": { "icon": "fa-award", "title": "Calidad Certificada", "description": "Libre de parabenos, sulfatos, siliconas y ingredientes sinteticos." } },
-        "ben-4": { "type": "benefit", "settings": { "icon": "fa-heart", "title": "Garantia Total", "description": "Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas." } }
-      },
-      "block_order": ["ben-1", "ben-2", "ben-3", "ben-4"]
-    },
-    "testimonials": {
-      "type": "testimonials",
-      "settings": {
-        "subtitle": "Testimonios",
-        "title": "Lo que Dicen Nuestros Clientes"
-      },
-      "blocks": {
-        "test-1": {
-          "type": "testimonial",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "text": "El aceite esencial de lavanda transformo mis noches. Duermo profundo y despierto renovada. No es solo un producto, es un ritual que atesoro.",
-            "initials": "MG",
-            "name": "Maria Garcia",
-            "location": "Ciudad de Mexico",
-            "rating": 5
+            "heading": "Bienestar que se siente",
+            "heading_size": "h0"
           }
         },
-        "test-2": {
-          "type": "testimonial",
+        "text": {
+          "type": "text",
           "settings": {
-            "text": "El serum de vitamina C dejo mi piel con un brillo natural que nunca logre con productos comerciales. La calidad se nota desde la primera aplicacion.",
-            "initials": "LR",
-            "name": "Laura Rodriguez",
-            "location": "Bogota, Colombia",
-            "rating": 5
+            "text": "<p>Productos naturales de grado terapeutico, disenados para quienes entienden que el bienestar no es un lujo — es una forma de vivir.</p>",
+            "text_style": "body"
           }
         },
-        "test-3": {
-          "type": "testimonial",
+        "button": {
+          "type": "buttons",
           "settings": {
-            "text": "Como instructora de yoga, necesito productos que reflejen los mismos valores de calidad y consciencia. Zymera es exactamente eso.",
-            "initials": "CM",
-            "name": "Camila Mendoza",
-            "location": "Lima, Peru",
-            "rating": 5
+            "button_label_1": "Explorar Colecciones",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "Nuestra Historia",
+            "button_link_2": "shopify://pages/about",
+            "button_style_secondary_2": true
           }
         }
       },
-      "block_order": ["test-1", "test-2", "test-3"]
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "image_overlay_opacity": 45,
+        "image_height": "large",
+        "desktop_content_position": "bottom-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": false,
+        "show_text_below": false
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "La naturaleza es nuestra medicina",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cada producto Serenne es formulado con ingredientes puros seleccionados por su eficacia comprobada. Sin parabenos, sin sulfatos, sin compromisos. Solo bienestar autentico.</p>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "full_width": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "aromaterapia": {
+          "type": "collection",
+          "settings": {
+            "collection": "aromaterapia"
+          }
+        },
+        "skincare": {
+          "type": "collection",
+          "settings": {
+            "collection": "skincare"
+          }
+        },
+        "yoga": {
+          "type": "collection",
+          "settings": {
+            "collection": "yoga-meditacion"
+          }
+        },
+        "sueno": {
+          "type": "collection",
+          "settings": {
+            "collection": "sueno-descanso"
+          }
+        }
+      },
+      "block_order": ["aromaterapia", "skincare", "yoga", "sueno"],
+      "settings": {
+        "heading": "Nuestras Colecciones",
+        "heading_size": "h2",
+        "show_view_all": false,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "portrait",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Lo Que Nuestros Clientes Eligen",
+        "heading_size": "h2",
+        "collection": "all",
+        "products_to_show": 8,
+        "columns_desktop": 4,
+        "color_scheme": "scheme-2",
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "2",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "image_with_text": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Rituales que transforman",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>No vendemos productos. Creamos rituales. Cada aceite, cada crema, cada accesorio esta disenado para elevar tu dia a dia a una experiencia de bienestar consciente.</p>"
+          }
+        },
+        "link": {
+          "type": "link",
+          "settings": {
+            "button_label": "Descubrir Ahora",
+            "button_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": ["heading", "text", "link"],
+      "settings": {
+        "image_height": "large",
+        "desktop_image_width": "half",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "mobile_image_height": "medium",
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "col1": {
+          "type": "column",
+          "settings": {
+            "title": "Ingredientes Puros",
+            "text": "<p>Cada ingrediente es seleccionado por su pureza y eficacia comprobada. Sin parabenos, sulfatos ni siliconas.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col2": {
+          "type": "column",
+          "settings": {
+            "title": "Envio Premium",
+            "text": "<p>Envio gratuito en pedidos mayores a $50. Empaque discreto, ecologico y con cuidado.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "col3": {
+          "type": "column",
+          "settings": {
+            "title": "Garantia Total",
+            "text": "<p>Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas. Sin condiciones.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["col1", "col2", "col3"],
+      "settings": {
+        "title": "Por Que Serenne",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "swipe_on_mobile": false,
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     },
     "newsletter": {
       "type": "newsletter",
       "settings": {
-        "title": "Unete al Circulo Zymera",
-        "description": "Recibe guias de bienestar, acceso anticipado a lanzamientos y 10% de descuento en tu primera compra.",
-        "btn_text": "Suscribirme"
+        "heading": "Unete al Circulo Serenne",
+        "text": "<p>Recibe guias de bienestar, acceso anticipado a lanzamientos y 10% de descuento en tu primera compra.</p>",
+        "color_scheme": "scheme-4",
+        "newsletter_width": "medium",
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     }
   },
-  "order": ["hero-banner", "trust-badges", "featured-categories", "featured-product-lifestyle", "featured-products", "benefits", "testimonials", "newsletter"]
+  "order": [
+    "image_banner",
+    "rich_text",
+    "collection_list",
+    "featured_collection",
+    "image_with_text",
+    "multicolumn",
+    "newsletter"
+  ]
 }

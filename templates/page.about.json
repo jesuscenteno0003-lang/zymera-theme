@@ -1,9 +1,11 @@
 {
   "sections": {
-    "page-about": {
-      "type": "page-about",
-      "settings": {}
+    "main": {
+      "type": "page",
+      "settings": {
+        "color_scheme": "scheme-1"
+      }
     }
   },
-  "order": ["page-about"]
+  "order": ["main"]
 }
