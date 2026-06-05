@@ -43,6 +43,32 @@
         "show_text_below": false
       }
     },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Ingredientes botanicos y de laboratorio",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Cada formulacion de Serenne combina lo mejor de la naturaleza con la precision de la ciencia. Ingredientes seleccionados por su pureza, eficacia y origen responsable."
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "full_width": true
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -60,10 +86,55 @@
         "show_rating": false,
         "columns_mobile": "2"
       }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "title": "Ingredientes Puros",
+            "text": "Cada ingrediente seleccionado por su pureza y eficacia comprobada. Sin parabenos ni sulfatos."
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "Envio Premium",
+            "text": "Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible."
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "title": "Garantia Total",
+            "text": "Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas."
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "settings": {
+        "title": "Por Que Serenne",
+        "heading_size": "h2",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "swipe_on_mobile": false,
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1"
+      }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "rich_text",
+    "featured_collection",
+    "multicolumn"
   ]
 }
