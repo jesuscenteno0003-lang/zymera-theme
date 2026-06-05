@@ -30,14 +30,25 @@
           "settings": {
             "button_label": "Explorar coleccion",
             "button_link": "/collections/all",
-            "button_style_secondary": true
+            "button_style_secondary": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
         "color_scheme": "scheme-3",
-        "full_width": true
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "philosophy": {
@@ -57,24 +68,45 @@
           }
         }
       },
-      "block_order": ["heading", "text"],
+      "block_order": [
+        "heading",
+        "text"
+      ],
       "settings": {
-        "color_scheme": "scheme-1"
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Descubrir",
-        "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
+        "title": "Descubrir",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
+        "enable_desktop_slider": false,
+        "full_width": false,
         "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": true,
-        "columns_mobile": "2"
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
     "values": {
@@ -84,35 +116,107 @@
           "type": "column",
           "settings": {
             "title": "Ingredientes Puros",
-            "text": "<p>Seleccionados por su pureza y eficacia comprobada. Sin parabenos, sin sulfatos, sin compromiso.</p>"
+            "text": "<p>Seleccionados por su pureza y eficacia comprobada. Sin parabenos, sin sulfatos, sin compromiso.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "column2": {
           "type": "column",
           "settings": {
             "title": "Envio Premium",
-            "text": "<p>Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible.</p>"
+            "text": "<p>Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible.</p>",
+            "link_label": "",
+            "link": ""
           }
         },
         "column3": {
           "type": "column",
           "settings": {
             "title": "Garantia Total",
-            "text": "<p>Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas.</p>"
+            "text": "<p>Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas.</p>",
+            "link_label": "",
+            "link": ""
           }
         }
       },
-      "block_order": ["column1", "column2", "column3"],
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
       "settings": {
         "title": "Por Que Serenne",
         "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "Button label",
+        "button_link": "",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "scheme-2",
-        "columns_mobile": "1"
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_GjDBrG": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_eFTiN7": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h1"
+          }
+        },
+        "text_9Bw7Pg": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_fRW8ma": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_eFTiN7",
+        "text_9Bw7Pg",
+        "buttons_fRW8ma"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/ibnu-ihza-Z7u2bpbE65Q-unsplash.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "image_behavior": "none",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
       }
     }
   },
-  "order": ["hero", "philosophy", "featured_collection", "values"]
+  "order": [
+    "hero",
+    "philosophy",
+    "featured_collection",
+    "values",
+    "image_banner_GjDBrG"
+  ]
 }
