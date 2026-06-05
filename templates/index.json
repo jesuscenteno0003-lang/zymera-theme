@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -6,14 +15,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Ingredientes puros.\nFormulaciones precisas.\nResultados visibles.",
+            "heading": "Ingredientes puros. Formulaciones precisas. Resultados visibles.",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Cada producto de Serenne combina lo mejor de la naturaleza con la precision de la ciencia."
+            "text": "<p>Cada producto de Serenne combina lo mejor de la naturaleza con la precision de la ciencia.</p>"
           }
         },
         "button": {
@@ -25,16 +34,10 @@
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+      "block_order": ["heading", "text", "button"],
       "settings": {
         "color_scheme": "scheme-3",
-        "full_width": true,
-        "padding_top": 120,
-        "padding_bottom": 120
+        "full_width": true
       }
     },
     "philosophy": {
@@ -50,19 +53,13 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "En Serenne creemos que el cuidado personal debe ser intencional. Cada formulacion es el resultado de una busqueda incansable de ingredientes puros, procesos sostenibles y eficacia comprobada."
+            "text": "<p>En Serenne creemos que el cuidado personal debe ser intencional. Cada formulacion es el resultado de una busqueda incansable de ingredientes puros, procesos sostenibles y eficacia comprobada.</p>"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+      "block_order": ["heading", "text"],
       "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "padding_top": 80,
-        "padding_bottom": 80
+        "color_scheme": "scheme-1"
       }
     },
     "featured_collection": {
@@ -75,11 +72,8 @@
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "show_view_all": true,
-        "swipe_on_mobile": false,
         "image_ratio": "adapt",
         "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
         "columns_mobile": "2"
       }
     },
@@ -90,72 +84,35 @@
           "type": "column",
           "settings": {
             "title": "Ingredientes Puros",
-            "text": "Seleccionados por su pureza y eficacia comprobada. Sin parabenos, sin sulfatos, sin compromiso."
+            "text": "<p>Seleccionados por su pureza y eficacia comprobada. Sin parabenos, sin sulfatos, sin compromiso.</p>"
           }
         },
         "column2": {
           "type": "column",
           "settings": {
             "title": "Envio Premium",
-            "text": "Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible."
+            "text": "<p>Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible.</p>"
           }
         },
         "column3": {
           "type": "column",
           "settings": {
             "title": "Garantia Total",
-            "text": "Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas."
+            "text": "<p>Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas.</p>"
           }
         }
       },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "block_order": ["column1", "column2", "column3"],
       "settings": {
         "title": "Por Que Serenne",
         "heading_size": "h2",
-        "image_width": "third",
-        "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
-        "swipe_on_mobile": false,
         "color_scheme": "scheme-2",
         "columns_mobile": "1"
       }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Unete a Serenne",
-            "heading_size": "h2"
-          }
-        },
-        "email_form": {
-          "type": "email_form"
-        }
-      },
-      "block_order": [
-        "heading",
-        "email_form"
-      ],
-      "settings": {
-        "color_scheme": "scheme-3",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
     }
   },
-  "order": [
-    "hero",
-    "philosophy",
-    "featured_collection",
-    "values",
-    "newsletter"
-  ]
+  "order": ["hero", "philosophy", "featured_collection", "values"]
 }
