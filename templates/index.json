@@ -6,14 +6,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Formulaciones para el cuidado de la piel, el cabello y el cuerpo de la mas fina calidad",
+            "heading": "Formulaciones para el cuidado de la piel, el cabello y el cuerpo",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Ingredientes botanicos y de laboratorio, formulados con integridad y cuidado.</p>",
+            "text": "<p>Ingredientes botanicos y de laboratorio de la mas fina calidad.</p>",
             "text_style": "body"
           }
         },
@@ -22,14 +22,18 @@
           "settings": {
             "button_label_1": "Descubrir",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": false,
+            "button_style_secondary_1": true,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
           }
         }
       },
-      "block_order": ["heading", "text", "button"],
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
       "settings": {
         "image_overlay_opacity": 30,
         "image_height": "large",
@@ -59,59 +63,21 @@
           }
         }
       },
-      "block_order": ["heading", "text"],
+      "block_order": [
+        "heading",
+        "text"
+      ],
       "settings": {
-        "color_scheme": "scheme-2",
-        "full_width": false,
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "collection_list": {
-      "type": "collection-list",
-      "blocks": {
-        "col-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "aromaterapia"
-          }
-        },
-        "col-2": {
-          "type": "collection",
-          "settings": {
-            "collection": "skincare"
-          }
-        },
-        "col-3": {
-          "type": "collection",
-          "settings": {
-            "collection": "yoga-meditacion"
-          }
-        },
-        "col-4": {
-          "type": "collection",
-          "settings": {
-            "collection": "sueno-descanso"
-          }
-        }
-      },
-      "block_order": ["col-1", "col-2", "col-3", "col-4"],
-      "settings": {
-        "heading": "Explorar por categoria",
-        "heading_size": "h2",
-        "show_view_all": true,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
         "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Adiciones recientes y formulaciones reverenciadas",
+        "title": "Lo mas reciente",
         "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
@@ -119,119 +85,73 @@
         "color_scheme": "scheme-1",
         "show_view_all": true,
         "swipe_on_mobile": false,
-        "image_ratio": "square",
+        "image_ratio": "adapt",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "columns_mobile": "2",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "image_with_text": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Un repertorio rico",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Fragancias de madera, opulencia, floral y fresco: nuestras fragancias subvierten y redefinen estas clasificaciones con matiz y inconformismo.</p>"
-          }
-        },
-        "link": {
-          "type": "link",
-          "settings": {
-            "button_label": "Explorar fragancias",
-            "button_link": "shopify://collections/aromaterapia"
-          }
-        }
-      },
-      "block_order": ["heading", "text", "link"],
-      "settings": {
-        "image_height": "large",
-        "desktop_image_width": "half",
-        "layout": "text_first",
-        "desktop_content_position": "middle",
-        "mobile_image_height": "medium",
-        "color_scheme": "scheme-2",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "padding_top": 28,
+        "padding_bottom": 36
       }
     },
     "multicolumn": {
       "type": "multicolumn",
       "blocks": {
-        "col-1": {
+        "column1": {
           "type": "column",
           "settings": {
-            "title": "Certificaciones",
-            "text": "<p>Orgullozosamente certificados B Corp. Cumplimos con los mas altos estandares de impacto social y ambiental.</p>",
+            "title": "Ingredientes Puros",
+            "text": "<p>Cada ingrediente seleccionado por su pureza y eficacia comprobada. Sin parabenos ni sulfatos.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "col-2": {
+        "column2": {
           "type": "column",
           "settings": {
-            "title": "Consultas personalizadas",
-            "text": "<p>Nuestros consultores en linea pueden ayudarte a seleccionar formulaciones que se adapten a tu tipo de piel y preferencias.</p>",
+            "title": "Envio Premium",
+            "text": "<p>Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible.</p>",
             "link_label": "",
             "link": ""
           }
         },
-        "col-3": {
+        "column3": {
           "type": "column",
           "settings": {
-            "title": "Envios gratuitos",
-            "text": "<p>Envio gratuito en pedidos superiores a $50. Embalaje discreto y sostenible.</p>",
+            "title": "Garantia Total",
+            "text": "<p>Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas.</p>",
             "link_label": "",
             "link": ""
           }
         }
       },
-      "block_order": ["col-1", "col-2", "col-3"],
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
       "settings": {
-        "title": "",
+        "title": "Por Que Serenne",
         "heading_size": "h1",
         "image_width": "third",
         "image_ratio": "adapt",
         "columns_desktop": 3,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "background_style": "none",
         "button_label": "",
         "button_link": "",
         "swipe_on_mobile": false,
-        "color_scheme": "scheme-1",
-        "columns_mobile": "1",
-        "padding_top": 80,
-        "padding_bottom": 80
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "heading": "Suscribete para recibir novedades",
-        "text": "<p>Recibe informacion sobre nuevos lanzamientos, eventos y recomendaciones de cuidado de la piel.</p>",
         "color_scheme": "scheme-2",
-        "newsletter_width": "medium",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "image_banner",
     "rich_text",
-    "collection_list",
     "featured_collection",
-    "image_with_text",
-    "multicolumn",
-    "newsletter"
+    "multicolumn"
   ]
 }
