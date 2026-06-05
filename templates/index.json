@@ -15,33 +15,21 @@
         "heading_eFTiN7": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
+            "heading": "<em> Ciencia y naturaleza, contigo</em>",
+            "heading_size": "h2"
           }
         },
         "text_9Bw7Pg": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text": "<em><strong>Cada gota, cada textura, cada aroma, pensado para tu bienestar.</strong></em>",
             "text_style": "body"
-          }
-        },
-        "buttons_fRW8ma": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
-            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
         "heading_eFTiN7",
-        "text_9Bw7Pg",
-        "buttons_fRW8ma"
+        "text_9Bw7Pg"
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
@@ -51,7 +39,7 @@
         "image_behavior": "none",
         "desktop_content_position": "middle-center",
         "desktop_content_alignment": "center",
-        "show_text_box": true,
+        "show_text_box": false,
         "color_scheme": "",
         "stack_images_on_mobile": true,
         "mobile_content_alignment": "center",
