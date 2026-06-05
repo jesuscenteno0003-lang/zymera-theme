@@ -54,17 +54,8 @@
         "collapsible-row-1": {
           "type": "collapsible_tab",
           "settings": {
-            "heading": "Envio y Devoluciones",
+            "heading": "Envio y devoluciones",
             "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Uso Recomendado",
-            "icon": "heart",
             "content": "",
             "page": ""
           }
@@ -76,7 +67,7 @@
           }
         }
       },
-      "block_order": ["vendor", "title", "caption", "price", "variant_picker", "quantity_selector", "buy_buttons", "description", "collapsible-row-0", "collapsible-row-1", "collapsible-row-2", "share"],
+      "block_order": ["vendor", "title", "caption", "price", "variant_picker", "quantity_selector", "buy_buttons", "description", "collapsible-row-0", "collapsible-row-1", "share"],
       "settings": {
         "enable_sticky_info": true,
         "gallery_layout": "stacked",
@@ -92,14 +83,14 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "Tambien te puede gustar",
+        "heading": "Tambien te puede interesar",
         "heading_size": "h2",
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": true,
+        "show_rating": false,
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 28
