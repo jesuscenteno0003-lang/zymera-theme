@@ -1,28 +1,27 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "hero": {
+      "type": "rich-text",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Formulaciones para el cuidado de la piel, el cabello y el cuerpo",
+            "heading": "Ingredientes puros.\nFormulaciones precisas.\nResultados visibles.",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Ingredientes botanicos y de laboratorio de la mas fina calidad.",
-            "text_style": "body"
+            "text": "Cada producto de Serenne combina lo mejor de la naturaleza con la precision de la ciencia."
           }
         },
         "button": {
-          "type": "buttons",
+          "type": "button",
           "settings": {
-            "button_label_1": "Descubrir",
-            "button_link_1": "/collections/all",
-            "button_style_secondary_1": true
+            "button_label": "Explorar coleccion",
+            "button_link": "/collections/all",
+            "button_style_secondary": true
           }
         }
       },
@@ -32,31 +31,26 @@
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 30,
-        "image_height": "large",
-        "desktop_content_position": "middle",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
         "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "full_width": true,
+        "padding_top": 120,
+        "padding_bottom": 120
       }
     },
-    "rich_text": {
+    "philosophy": {
       "type": "rich-text",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Ingredientes botanicos y de laboratorio",
+            "heading": "Nuestra filosofia",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Cada formulacion de Serenne combina lo mejor de la naturaleza con la precision de la ciencia. Ingredientes seleccionados por su pureza, eficacia y origen responsable."
+            "text": "En Serenne creemos que el cuidado personal debe ser intencional. Cada formulacion es el resultado de una busqueda incansable de ingredientes puros, procesos sostenibles y eficacia comprobada."
           }
         }
       },
@@ -66,13 +60,15 @@
       ],
       "settings": {
         "color_scheme": "scheme-1",
-        "full_width": true
+        "full_width": false,
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Lo mas reciente",
+        "title": "Descubrir",
         "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
@@ -87,14 +83,14 @@
         "columns_mobile": "2"
       }
     },
-    "multicolumn": {
+    "values": {
       "type": "multicolumn",
       "blocks": {
         "column1": {
           "type": "column",
           "settings": {
             "title": "Ingredientes Puros",
-            "text": "Cada ingrediente seleccionado por su pureza y eficacia comprobada. Sin parabenos ni sulfatos."
+            "text": "Seleccionados por su pureza y eficacia comprobada. Sin parabenos, sin sulfatos, sin compromiso."
           }
         },
         "column2": {
@@ -129,12 +125,37 @@
         "color_scheme": "scheme-2",
         "columns_mobile": "1"
       }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Unete a Serenne",
+            "heading_size": "h2"
+          }
+        },
+        "email_form": {
+          "type": "email_form"
+        }
+      },
+      "block_order": [
+        "heading",
+        "email_form"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
     }
   },
   "order": [
-    "image_banner",
-    "rich_text",
+    "hero",
+    "philosophy",
     "featured_collection",
-    "multicolumn"
+    "values",
+    "newsletter"
   ]
 }
