@@ -13,7 +13,7 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Ingredientes botanicos y de laboratorio de la mas fina calidad.</p>",
+            "text": "Ingredientes botanicos y de laboratorio de la mas fina calidad.",
             "text_style": "body"
           }
         },
@@ -21,11 +21,8 @@
           "type": "buttons",
           "settings": {
             "button_label_1": "Descubrir",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_link_1": "/collections/all",
+            "button_style_secondary_1": true
           }
         }
       },
@@ -46,34 +43,6 @@
         "show_text_below": false
       }
     },
-    "rich_text": {
-      "type": "rich-text",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Ingredientes botanicos y de laboratorio",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Cada formulacion de Serenne combina lo mejor de la naturaleza con la precision de la ciencia. Ingredientes seleccionados por su pureza, eficacia y origen responsable.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -89,69 +58,12 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Ingredientes Puros",
-            "text": "<p>Cada ingrediente seleccionado por su pureza y eficacia comprobada. Sin parabenos ni sulfatos.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Envio Premium",
-            "text": "<p>Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Garantia Total",
-            "text": "<p>Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "Por Que Serenne",
-        "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "button_label": "",
-        "button_link": "",
-        "swipe_on_mobile": false,
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "columns_mobile": "2"
       }
     }
   },
   "order": [
     "image_banner",
-    "rich_text",
-    "featured_collection",
-    "multicolumn"
+    "featured_collection"
   ]
 }
