@@ -6,8 +6,16 @@
 {% endcomment %}
 
 <nav class="header__inline-menu">
+  {%- assign menu_translations = 'Home=Inicio|Catalog=Tienda|Store=Nosotros|We=Nosotros|Blog=Blog|Contacto=Contacto' | split: '|' -%}
   <ul class="list-menu list-menu--inline" role="list">
     {%- for link in section.settings.menu.links -%}
+      {%- assign translated_title = link.title -%}
+      {%- for t in menu_translations -%}
+        {%- assign parts = t | split: '=' -%}
+        {%- if link.title == parts[0] -%}
+          {%- assign translated_title = parts[1] -%}
+        {%- endif -%}
+      {%- endfor -%}
       <li>
         {%- if link.links != blank -%}
           <header-menu>
@@ -21,7 +29,7 @@
                     class="header__active-menu-item"
                   {% endif %}
                 >
-                  {{- link.title | escape -}}
+                  {{- translated_title | escape -}}
                 </span>
                 {{- 'icon-caret.svg' | inline_asset_content -}}
               </summary>
@@ -84,7 +92,7 @@
                 class="header__active-menu-item"
               {% endif %}
             >
-              {{- link.title | escape -}}
+              {{- translated_title | escape -}}
             </span>
           </a>
         {%- endif -%}

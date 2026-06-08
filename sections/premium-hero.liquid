@@ -23,35 +23,34 @@
   </div>
   
   <div class="hero-content">
-    {% if section.settings.hero_badge != blank %}
-      <div class="hero-badge animate-fade-in-up">
-        <span>{{ section.settings.hero_badge }}</span>
-      </div>
-    {% endif %}
-    
-    {% if section.settings.hero_title != blank %}
-      <h1 class="hero-title animate-fade-in-up animate-delay-1">
-        {{ section.settings.hero_title }}
-      </h1>
-    {% endif %}
-    
-    {% if section.settings.hero_subtitle != blank %}
-      <p class="hero-subtitle animate-fade-in-up animate-delay-2">
-        {{ section.settings.hero_subtitle }}
-      </p>
-    {% endif %}
-    
+    {%- comment -%} Force Spanish text regardless of cached settings {%- endcomment -%}
+    {% assign hero_badge = 'Nueva Colección 2025' %}
+    {% assign hero_title = 'Tu piel merece <em>rituales intencionales</em>' %}
+    {% assign hero_subtitle = 'Formulaciones botánicas de laboratorio. Ingredientes puros que transforman tu piel y elevan tu bienestar diario.' %}
+    {% assign hero_button_text = 'Explorar Colección' %}
+    {% assign hero_button_link = '/collections' %}
+    {% assign hero_button_text_2 = 'Nuestra Filosofía' %}
+    {% assign hero_button_link_2 = '/pages/about' %}
+
+    <div class="hero-badge animate-fade-in-up">
+      <span>{{ hero_badge }}</span>
+    </div>
+
+    <h1 class="hero-title animate-fade-in-up animate-delay-1">
+      {{ hero_title }}
+    </h1>
+
+    <p class="hero-subtitle animate-fade-in-up animate-delay-2">
+      {{ hero_subtitle }}
+    </p>
+
     <div class="hero-cta animate-fade-in-up animate-delay-3">
-      {% if section.settings.hero_button_text != blank %}
-        <a href="{{ section.settings.hero_button_link | default: '/collections' }}" class="btn btn-primary">
-          {{ section.settings.hero_button_text }}
-        </a>
-      {% endif %}
-      {% if section.settings.hero_button_text_2 != blank %}
-        <a href="{{ section.settings.hero_button_link_2 | default: '/pages/about' }}" class="btn btn-secondary" style="border-color: white; color: white;">
-          {{ section.settings.hero_button_text_2 }}
-        </a>
-      {% endif %}
+      <a href="{{ hero_button_link }}" class="btn btn-primary">
+        {{ hero_button_text }}
+      </a>
+      <a href="{{ hero_button_link_2 }}" class="btn btn-secondary" style="border-color: white; color: white;">
+        {{ hero_button_text_2 }}
+      </a>
     </div>
   </div>
   

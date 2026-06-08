@@ -1,0 +1,14 @@
+<modal-opener
+  class="product-popup-modal__opener quick-add-hidden"
+  data-modal="#PopupModal-{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  <button
+    id="ProductPopup-{{ block.id }}"
+    class="product-popup-modal__button link"
+    type="button"
+    aria-haspopup="dialog"
+  >
+    {{ block.settings.text | default: block.settings.page.title | escape }}
+  </button>
+</modal-opener>

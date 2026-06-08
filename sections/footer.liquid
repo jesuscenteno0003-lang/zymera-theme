@@ -76,7 +76,11 @@
                 {% endif %}
               >
                 {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
+                  {%- assign footer_heading = block.settings.heading -%}
+                  {%- if block.settings.heading == 'Collections' -%}{%- assign footer_heading = 'Colecciones' -%}{%- endif -%}
+                  {%- if block.settings.heading == 'Our Philosophy' -%}{%- assign footer_heading = 'Nuestra Filosofía' -%}{%- endif -%}
+                  {%- if block.settings.heading == 'Serene' -%}{%- assign footer_heading = 'Serenne' -%}{%- endif -%}
+                  <h2 class="footer-block__heading inline-richtext">{{- footer_heading -}}</h2>
                 {%- endif -%}
 
                 {%- case block.type -%}
@@ -168,7 +172,9 @@
           {%- if section.settings.newsletter_enable -%}
             <div class="footer-block__newsletter">
               {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+                {%- assign nl_heading = section.settings.newsletter_heading -%}
+                {%- if section.settings.newsletter_heading == 'Subscribe to our emails' -%}{%- assign nl_heading = 'Suscríbete para recibir novedades' -%}{%- endif -%}
+                <h2 class="footer-block__heading inline-richtext">{{ nl_heading }}</h2>
               {%- endif -%}
               {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
                 <input type="hidden" name="contact[tags]" value="newsletter">

@@ -1,12 +1,11 @@
 <section class="benefits section" id="benefits-{{ section.id }}">
   <div class="container">
+    {%- comment -%} Force Spanish text regardless of cached settings {%- endcomment -%}
+    {% assign section_label = 'Beneficios' %}
+    {% assign section_title = 'Por qué elegir Serenne' %}
     <div class="benefits-header reveal">
-      {% if section.settings.section_label != blank %}
-        <span class="section-label">{{ section.settings.section_label }}</span>
-      {% endif %}
-      {% if section.settings.section_title != blank %}
-        <h2>{{ section.settings.section_title }}</h2>
-      {% endif %}
+      <span class="section-label">{{ section_label }}</span>
+      <h2>{{ section_title }}</h2>
     </div>
     
     <div class="benefits-grid stagger-group">

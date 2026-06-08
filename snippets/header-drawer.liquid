@@ -20,8 +20,16 @@
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <nav class="menu-drawer__navigation">
+            {%- assign menu_translations = 'Home=Inicio|Catalog=Tienda|Store=Nosotros|We=Nosotros|Blog=Blog|Contacto=Contacto' | split: '|' -%}
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
+                {%- assign translated_title = link.title -%}
+                {%- for t in menu_translations -%}
+                  {%- assign parts = t | split: '=' -%}
+                  {%- if link.title == parts[0] -%}
+                    {%- assign translated_title = parts[1] -%}
+                  {%- endif -%}
+                {%- endfor -%}
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
@@ -29,7 +37,7 @@
                         id="HeaderDrawer-{{ link.handle }}"
                         class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}"
                       >
-                        {{ link.title | escape }}
+                        {{ translated_title | escape }}
                         <span class="svg-wrapper">
                           {{- 'icon-arrow.svg' | inline_asset_content -}}
                         </span>
@@ -47,7 +55,7 @@
                             <span class="svg-wrapper">
                               {{- 'icon-arrow.svg' | inline_asset_content -}}
                             </span>
-                            {{ link.title | escape }}
+                            {{ translated_title | escape }}
                           </button>
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
@@ -128,7 +136,7 @@
                         aria-current="page"
                       {% endif %}
                     >
-                      {{ link.title | escape }}
+                      {{ translated_title | escape }}
                     </a>
                   {%- endif -%}
                 </li>

@@ -1,12 +1,11 @@
 <section class="testimonials section" id="testimonials-{{ section.id }}">
   <div class="container">
+    {%- comment -%} Force Spanish text regardless of cached settings {%- endcomment -%}
+    {% assign section_label = 'Testimonios' %}
+    {% assign section_title = 'Lo que dice nuestra comunidad' %}
     <div class="testimonials-header reveal">
-      {% if section.settings.section_label != blank %}
-        <span class="section-label">{{ section.settings.section_label }}</span>
-      {% endif %}
-      {% if section.settings.section_title != blank %}
-        <h2>{{ section.settings.section_title }}</h2>
-      {% endif %}
+      <span class="section-label">{{ section_label }}</span>
+      <h2>{{ section_title }}</h2>
     </div>
     
     <div class="testimonials-grid stagger-group">
