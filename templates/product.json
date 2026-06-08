@@ -9,121 +9,12 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-product",
-      "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "Serenne",
-            "text_style": "uppercase"
-          }
-        },
-        "title": {
-          "type": "title",
-          "settings": {}
-        },
-        "caption": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.metafields.descriptors.subtitle.value }}",
-            "text_style": "subtitle"
-          }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "variant_picker": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": false
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Ingredientes",
-            "icon": "leaf",
-            "content": "<p>Ingredientes naturales de origen botánico. Cada formulación es el resultado de una búsqueda incansable de ingredientes puros, procesos sostenibles y eficacia comprobada.</p><p>Libre de parabenos, sulfatos, fragancias sintéticas y ingredientes de origen animal.</p>",
-            "page": ""
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Envío y devoluciones",
-            "icon": "truck",
-            "content": "<p><strong>Envío gratuito</strong> en pedidos superiores a S/. 200.</p><p>Envío estándar: 3-5 días hábiles.<br>Envío express: 1-2 días hábiles.</p><p><strong>Devoluciones:</strong> Aceptamos devoluciones dentro de los 30 días posteriores a la compra. El producto debe estar sin abrir y en su empaque original.</p>",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Compartir"
-          }
-        }
-      },
-      "block_order": [
-        "vendor",
-        "title",
-        "caption",
-        "price",
-        "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
-        "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "share"
-      ],
-      "settings": {
-        "enable_sticky_info": true,
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 96,
-        "padding_bottom": 96
-      }
-    },
-    "related-products": {
-      "type": "related-products",
-      "settings": {
-        "heading": "También te puede interesar",
-        "heading_size": "h2",
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "padding_top": 96,
-        "padding_bottom": 96
-      }
+    "serenne-product": {
+      "type": "serenne-product",
+      "settings": {}
     }
   },
   "order": [
-    "main",
-    "related-products"
+    "serenne-product"
   ]
 }
