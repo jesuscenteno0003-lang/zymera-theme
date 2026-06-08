@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQ();
   initProductPage();
   initStickyATC();
-  initNewsletter();
   initLazyLoad();
   initSmoothScroll();
 });
@@ -23,7 +22,7 @@ function initHeader() {
   let lastScroll = 0;
   const scrollThreshold = 100;
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', debounce(() => {
     const currentScroll = window.pageYOffset;
     
     // Add scrolled class for shadow
@@ -43,7 +42,7 @@ function initHeader() {
     }
     
     lastScroll = currentScroll;
-  });
+  }, 10));
 
   // Mobile menu toggle
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
@@ -76,7 +75,7 @@ function initHero() {
   const heroImage = hero.querySelector('.hero-image');
   const heroContent = hero.querySelector('.hero-content');
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener('scroll', debounce(() => {
     const scrolled = window.pageYOffset;
     const heroRect = hero.getBoundingClientRect();
     
@@ -88,7 +87,7 @@ function initHero() {
       const opacity = 1 - (scrolled / (heroRect.height * 0.8));
       heroContent.style.opacity = Math.max(0, opacity);
     }
-  });
+  }, 10));
 
   // Typewriter effect for hero title
   const heroTitle = hero.querySelector('.hero-title');
@@ -134,24 +133,25 @@ function initScrollReveal() {
   staggerGroups.forEach(el => staggerObserver.observe(el));
 }
 
-/* ---------- FAQ ACCORDION ---------- */
+/* ---------- FAQ ACCORDION (uses native <details>/<summary>) ---------- */
 function initFAQ() {
   const faqItems = document.querySelectorAll('.faq-item');
   
   faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
+    const summary = item.querySelector('.faq-question');
     
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
+    item.addEventListener('toggle', () => {
+      const isOpen = item.open;
+      summary.setAttribute('aria-expanded', isOpen);
       
-      // Close all items
-      faqItems.forEach(otherItem => {
-        otherItem.classList.remove('active');
-      });
-      
-      // Toggle current item
-      if (!isActive) {
-        item.classList.add('active');
+      // Close other items when one opens
+      if (isOpen) {
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item && otherItem.open) {
+            otherItem.open = false;
+            otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          }
+        });
       }
     });
   });
@@ -288,39 +288,6 @@ function initStickyATC() {
   }
 }
 
-/* ---------- NEWSLETTER FORM ---------- */
-function initNewsletter() {
-  const form = document.querySelector('.newsletter-form');
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const email = form.querySelector('input[type="email"]').value;
-    const btn = form.querySelector('button');
-    const originalText = btn.textContent;
-    
-    // Show loading state
-    btn.textContent = '...';
-    btn.disabled = true;
-    
-    // Simulate API call (replace with actual Shopify endpoint)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Show success
-    btn.textContent = '✓ GRACIAS';
-    btn.style.background = '#4CAF50';
-    
-    // Reset after delay
-    setTimeout(() => {
-      btn.textContent = originalText;
-      btn.style.background = '';
-      btn.disabled = false;
-      form.reset();
-    }, 3000);
-  });
-}
-
 /* ---------- LAZY LOADING ---------- */
 function initLazyLoad() {
   const lazyImages = document.querySelectorAll('img[data-src]');
@@ -373,14 +340,25 @@ function updateCartCount(count) {
 function showAddToCartNotification(productName) {
   const notification = document.createElement('div');
   notification.className = 'add-to-cart-notification';
-  notification.innerHTML = `
-    <div class="notification-content">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 6L9 17l-5-5"/>
-      </svg>
-      <span>${productName} añadido al carrito</span>
-    </div>
-  `;
+  
+  const content = document.createElement('div');
+  content.className = 'notification-content';
+  
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24');
+  svg.setAttribute('fill', 'none');
+  svg.setAttribute('stroke', 'currentColor');
+  svg.setAttribute('stroke-width', '2');
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  path.setAttribute('d', 'M20 6L9 17l-5-5');
+  svg.appendChild(path);
+  
+  const span = document.createElement('span');
+  span.textContent = productName + ' añadido al carrito';
+  
+  content.appendChild(svg);
+  content.appendChild(span);
+  notification.appendChild(content);
   
   document.body.appendChild(notification);
   
@@ -394,18 +372,7 @@ function showAddToCartNotification(productName) {
   }, 3000);
 }
 
-/* ---------- UTILITY: Debounce ---------- */
-function debounce(func, wait = 20) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
+/* ---------- UTILITY: Debounce (uses global debounce from global.js) ---------- */
 
 /* ---------- PERFORMANCE: Request Animation Frame ---------- */
 function raf(callback) {
@@ -456,39 +423,4 @@ if (typeof Shopify !== 'undefined') {
   };
 }
 
-/* ---------- NOTIFICATION STYLES (injected) ---------- */
-const notificationStyles = document.createElement('style');
-notificationStyles.textContent = `
-  .add-to-cart-notification {
-    position: fixed;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: var(--serenne-dark);
-    color: var(--serenne-ivory);
-    padding: 16px 32px;
-    border-radius: 4px;
-    opacity: 0;
-    transition: all 0.3s ease;
-    z-index: 9999;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-  }
-  
-  .add-to-cart-notification.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-  
-  .notification-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .notification-content svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--serenne-gold);
-  }
-`;
-document.head.appendChild(notificationStyles);
+/* ---------- NOTIFICATION STYLES (moved to premium-custom.css) ---------- */

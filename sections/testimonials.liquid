@@ -1,0 +1,289 @@
+{{ 'premium-custom.css' | asset_url | stylesheet_tag }}
+
+<div class="testimonials-section" id="testimonials-{{ section.id }}">
+  <div class="container">
+    {% if section.settings.title != blank %}
+      <div class="section-header">
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+        {% if section.settings.subtitle != blank %}
+          <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="testimonial-stars">
+            {% for i in (1..5) %}
+              <svg class="star-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            {% endfor %}
+          </div>
+          <blockquote class="testimonial-text">
+            {{ block.settings.text }}
+          </blockquote>
+          <div class="testimonial-author">
+            {% if block.settings.image != blank %}
+              <img 
+                src="{{ block.settings.image | image_url: width: 100 }}" 
+                alt="{{ block.settings.author }}"
+                class="testimonial-image"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="testimonial-image-placeholder">
+                {{ block.settings.author | slice: 0 }}
+              </div>
+            {% endif %}
+            <div class="testimonial-info">
+              <cite class="testimonial-name">{{ block.settings.author }}</cite>
+              {% if block.settings.verified %}
+                <span class="testimonial-verified">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  Compra verificada
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.show_cta %}
+      <div class="testimonials-cta">
+        <a href="{{ section.settings.cta_link }}" class="btn btn-primary">
+          {{ section.settings.cta_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonios",
+  "tag": "section",
+  "class": "section-testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Lo que dicen nuestras clientas"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Mostrar botón CTA",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto del botón",
+      "default": "Ver todos los productos"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Enlace del botón"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonio",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonio",
+          "default": "Excelente producto, la calidad superó mis expectativas. El envío fue rápido y el empaquetado muy cuidadoso."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Nombre",
+          "default": "María García"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Foto (opcional)"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Compra verificada",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonios",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "El aceite de lavanda es increíble. Mi ansiedad ha disminuido notablemente desde que lo uso antes de dormir.",
+            "author": "Ana Torres",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "Excelente calidad y atención al cliente. El empaquetado es muy premium, se nota el cuidado en cada detalle.",
+            "author": "Lucía Fernández",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "Compré el serum de vitamina C y mi piel se ve radiante. Definitivamente volveré a comprar.",
+            "author": "Carolina Ruiz",
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.testimonials-section {
+  padding: 80px 0;
+  background: var(--serenne-ivory);
+}
+
+.testimonials-section .section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.testimonials-section .section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--serenne-dark);
+  margin-bottom: 16px;
+}
+
+.testimonials-section .section-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-base-background-2);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.star-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--serenne-gold);
+}
+
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-base-background-2);
+  margin: 0 0 24px 0;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-image-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--serenne-sage);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.testimonial-name {
+  font-weight: 600;
+  color: var(--serenne-dark);
+  font-style: normal;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.testimonial-verified {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--serenne-sage);
+}
+
+.testimonials-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .testimonials-section {
+    padding: 60px 0;
+  }
+}
+</style>

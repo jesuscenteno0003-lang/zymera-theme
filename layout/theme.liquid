@@ -123,7 +123,7 @@
         --media-shadow-visible: {% if settings.media_shadow_opacity > 0 %}1{% else %}0{% endif %};
 
         --page-width: {{ settings.page_width | divided_by: 10 }}rem;
-        --page-width-margin: {% if settings.page_width == '1600' %}2{% else %}0{% endif %}rem;
+        --page-width-margin: {% if settings.page_width == 1600 %}2{% else %}0{% endif %}rem;
 
         --product-card-image-padding: {{ settings.card_image_padding | divided_by: 10.0 }}rem;
         --product-card-corner-radius: {{ settings.card_corner_radius | divided_by: 10.0 }}rem;
@@ -291,14 +291,9 @@
       >
     {%- endif -%}
 
-    <!-- Google Fonts - Premium Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
     <!-- Premium CSS & JS -->
     {{ 'premium-custom.css' | asset_url | stylesheet_tag }}
-    {{ 'premium-scripts.js' | asset_url | script_tag }}
+    <script src="{{ 'premium-scripts.js' | asset_url }}" defer="defer"></script>
 
     <script>
       if (Shopify.designMode) {
@@ -382,34 +377,9 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "{{ shop.name }}",
-      "url": "{{ shop.url }}",
-      "description": "{{ shop.description | escape }}"
-    }
-    </script>
-    {%- if request.page_type == 'product' -%}
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": {{ product.title | json }},
-      "description": {{ product.description | strip_html | json }},
-      "image": "{{ product.featured_image | image_url: width: 1200 }}",
-      "sku": {{ product.selected_or_first_available_variant.sku | json }},
-      "brand": { "@type": "Brand", "name": "Serenne" },
-      "offers": {
-        "@type": "Offer",
-        "url": "{{ product.url | prepend: shop.url }}",
-        "priceCurrency": "{{ cart.currency.iso_code }}",
-        "price": "{{ product.price | money_without_currency }}",
-        "availability": "{% if product.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}"
-      }
-    }
-    </script>
-    {%- endif -%}
+    {%- comment -%}
+      Organization schema moved to sections/header.liquid (more complete with sameAs, logo)
+      Product schema uses {{ product | structured_data }} in sections/main-product.liquid
+    {%- endcomment -%}
   </body>
 </html>

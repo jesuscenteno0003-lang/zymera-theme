@@ -26,7 +26,9 @@
             {% if block.settings.avatar != blank %}
               <img src="{{ block.settings.avatar | image_url: width: 100 }}" alt="{{ block.settings.name }}" class="testimonial-avatar" width="48" height="48" loading="lazy">
             {% else %}
-              <img src="https://ui-avatars.com/api/?name={{ block.settings.name | url_encode }}&background=C9A96E&color=fff&size=100" alt="{{ block.settings.name }}" class="testimonial-avatar" width="48" height="48" loading="lazy">
+              {% assign avatar_index = forloop.index | modulo: 3 | plus: 1 %}
+              {% assign avatar_urls = 'https://cdn.shopify.com/s/files/1/0998/6283/9609/files/avatar-1_jpg.jpg?v=1780878591,https://cdn.shopify.com/s/files/1/0998/6283/9609/files/avatar-2_jpg.jpg?v=1780878599,https://cdn.shopify.com/s/files/1/0998/6283/9609/files/avatar-3_jpg.jpg?v=1780878598' | split: ',' %}
+              <img src="{{ avatar_urls[avatar_index] }}" alt="{{ block.settings.name }}" class="testimonial-avatar" width="48" height="48" loading="lazy">
             {% endif %}
             <div>
               <div class="testimonial-name">{{ block.settings.name }}</div>

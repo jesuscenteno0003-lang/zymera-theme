@@ -17,15 +17,15 @@
       
       <div class="faq-list">
         {% for block in section.blocks %}
-          <div class="faq-item" {{ block.shopify_attributes }}>
-            <button class="faq-question">
+          <details class="faq-item" {{ block.shopify_attributes }}>
+            <summary class="faq-question" aria-expanded="false">
               {{ block.settings.question }}
               <span class="faq-icon"></span>
-            </button>
+            </summary>
             <div class="faq-answer">
               <p>{{ block.settings.answer }}</p>
             </div>
-          </div>
+          </details>
         {% endfor %}
       </div>
     </div>

@@ -1,0 +1,144 @@
+{{ 'premium-custom.css' | asset_url | stylesheet_tag }}
+
+<div class="shipping-bar" id="shipping-bar-{{ section.id }}">
+  <div class="container">
+    <div class="shipping-bar-inner">
+      <div class="shipping-bar-text">
+        {% if section.settings.text != blank %}
+          {{ section.settings.text }}
+        {% else %}
+          ¡Te faltan <span class="shipping-bar-amount" data-threshold="{{ section.settings.threshold | times: 100 }}">S/. {{ section.settings.threshold }}</span> para envío gratis!
+        {% endif %}
+      </div>
+      <div class="shipping-bar-progress">
+        <div class="shipping-bar-fill" style="width: 0%"></div>
+      </div>
+      <div class="shipping-bar-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const shippingBar = document.querySelector('.shipping-bar');
+    if (!shippingBar) return;
+    
+    const threshold = parseInt(shippingBar.dataset.threshold) || 5000;
+    const fill = shippingBar.querySelector('.shipping-bar-fill');
+    const amount = shippingBar.querySelector('.shipping-bar-amount');
+    
+    fetch('/cart.js')
+      .then(response => response.json())
+      .then(cart => {
+        const total = cart.total_price;
+        const percentage = Math.min((total / threshold) * 100, 100);
+        fill.style.width = percentage + '%';
+        
+        if (total >= threshold) {
+          shippingBar.classList.add('shipping-bar--complete');
+          shippingBar.querySelector('.shipping-bar-text').innerHTML = '¡Felicidades! Tienes envío gratis 🎉';
+        } else {
+          const remaining = ((threshold - total) / 100).toFixed(2);
+          if (amount) amount.textContent = 'S/. ' + remaining;
+        }
+      })
+      .catch(() => {});
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Barra de Envío Gratis",
+  "tag": "section",
+  "class": "section-shipping-bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Texto personalizado",
+      "info": "Usa {{ amount }} para mostrar la cantidad restante"
+    },
+    {
+      "type": "number",
+      "id": "threshold",
+      "label": "Monto mínimo para envío gratis (S/.)",
+      "default": 50
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barra de Envío Gratis"
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+.shipping-bar {
+  background: var(--serenne-dark);
+  color: var(--serenne-ivory);
+  padding: 12px 0;
+}
+
+.shipping-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.shipping-bar-text {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.shipping-bar-amount {
+  color: var(--serenne-gold);
+  font-weight: 600;
+}
+
+.shipping-bar-progress {
+  width: 120px;
+  height: 4px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.shipping-bar-fill {
+  height: 100%;
+  background: var(--serenne-gold);
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+.shipping-bar-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--serenne-gold);
+}
+
+.shipping-bar-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.shipping-bar--complete {
+  background: #2d5016;
+}
+
+@media (max-width: 590px) {
+  .shipping-bar-inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .shipping-bar-progress {
+    width: 100%;
+  }
+}
+</style>
