@@ -24,6 +24,11 @@
 
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
+        {%- if forloop.first -%}
+          {%- assign article_lazy = false -%}
+        {%- else -%}
+          {%- assign article_lazy = true -%}
+        {%- endif -%}
         <div
           class="blog-articles__article article{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
@@ -38,7 +43,8 @@
             show_image: section.settings.show_image,
             show_date: section.settings.show_date,
             show_author: section.settings.show_author,
-            show_excerpt: true
+            show_excerpt: true,
+            lazy_load: article_lazy
           -%}
         </div>
       {%- endfor -%}

@@ -60,6 +60,11 @@
       >
         {%- if section.settings.blog != blank and section.settings.blog.articles_count > 0 -%}
           {%- for article in section.settings.blog.articles limit: section.settings.post_limit -%}
+            {%- if forloop.first -%}
+              {%- assign article_lazy = false -%}
+            {%- else -%}
+              {%- assign article_lazy = true -%}
+            {%- endif -%}
             <li
               id="Slide-{{ section.id }}-{{ forloop.index }}"
               class="blog__post grid__item article slider__slide slider__slide--full-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -75,7 +80,8 @@
                 show_image: section.settings.show_image,
                 show_date: section.settings.show_date,
                 show_author: section.settings.show_author,
-                show_excerpt: true
+                show_excerpt: true,
+                lazy_load: article_lazy
               %}
             </li>
           {%- endfor -%}
