@@ -99,40 +99,40 @@
       }
     },
     "instagram-feed": {
-      "type": "multicolumn",
+      "type": "instagram-feed",
       "blocks": {
         "insta-1": {
-          "type": "column",
+          "type": "image",
           "settings": {
             "image": "shopify://shopify/MediaImage/45168106832185"
           }
         },
         "insta-2": {
-          "type": "column",
+          "type": "image",
           "settings": {
             "image": "shopify://shopify/MediaImage/45168107389241"
           }
         },
         "insta-3": {
-          "type": "column",
+          "type": "image",
           "settings": {
             "image": "shopify://shopify/MediaImage/45168109519161"
           }
         },
         "insta-4": {
-          "type": "column",
+          "type": "image",
           "settings": {
             "image": "shopify://shopify/MediaImage/45168107127097"
           }
         },
         "insta-5": {
-          "type": "column",
+          "type": "image",
           "settings": {
             "image": "shopify://shopify/MediaImage/45168106996025"
           }
         },
         "insta-6": {
-          "type": "column",
+          "type": "image",
           "settings": {
             "image": "shopify://shopify/MediaImage/45168107323705"
           }
@@ -150,13 +150,6 @@
         "title": "@serenne",
         "button_label": "Síguenos en Instagram",
         "button_link": "https://instagram.com/serenne",
-        "columns_desktop": 6,
-        "image_ratio": "square",
-        "image_width": "full",
-        "column_alignment": "center",
-        "background_style": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36,
         "color_scheme": "scheme-1"
