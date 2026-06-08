@@ -44,11 +44,10 @@
       ],
       "settings": {
         "height": "adapt",
-        "layout": "text_first",
         "desktop_image_width": "medium",
-        "desktop_content_position": "center",
+        "layout": "text_first",
         "content_layout": "no-overlap",
-        "mobile_content_position": "center",
+        "desktop_content_position": "center",
         "color_scheme": "scheme-1",
         "padding_top": 40,
         "padding_bottom": 52
@@ -93,8 +92,7 @@
       "type": "premium-testimonials",
       "settings": {
         "section_label": "Testimonios",
-        "section_title": "Lo que dice nuestra comunidad",
-        "color_scheme": "scheme-1"
+        "section_title": "Lo que dice nuestra comunidad"
       }
     },
     "instagram-feed": {
