@@ -1,0 +1,86 @@
+{{ 'premium-custom.css' | asset_url | stylesheet_tag }}
+
+<section class="newsletter section" id="newsletter-{{ section.id }}">
+  <div class="container">
+    <div class="newsletter-inner reveal">
+      {% if section.settings.section_label != blank %}
+        <span class="section-label" style="color: var(--serenne-gold-light);">{{ section.settings.section_label }}</span>
+      {% endif %}
+      {% if section.settings.section_title != blank %}
+        <h2 class="newsletter-title">{{ section.settings.section_title }}</h2>
+      {% endif %}
+      {% if section.settings.section_text != blank %}
+        <p class="newsletter-text">{{ section.settings.section_text }}</p>
+      {% endif %}
+      
+      <form class="newsletter-form" action="/contact#newsletter" method="post">
+        <input type="hidden" name="form_type" value="customer">
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input 
+          type="email" 
+          name="contact[email]" 
+          class="newsletter-input" 
+          placeholder="{{ section.settings.placeholder | default: 'Tu correo electrónico' }}"
+          required
+          aria-label="Correo electrónico"
+        >
+        <button type="submit" class="newsletter-btn">{{ section.settings.button_text | default: 'Suscribirse' }}</button>
+      </form>
+      
+      {% if section.settings.privacy_text != blank %}
+        <p class="newsletter-privacy">{{ section.settings.privacy_text }}</p>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter Premium",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Únete a nuestro círculo"
+    },
+    {
+      "type": "textarea",
+      "id": "section_text",
+      "label": "Section Text",
+      "default": "Recibe acceso anticipado a nuevos lanzamientos, rituales de cuidado personal y un 10% de descuento en tu primera compra."
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Tu correo electrónico"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Suscribirse"
+    },
+    {
+      "type": "text",
+      "id": "privacy_text",
+      "label": "Privacy Text",
+      "default": "Respetamos tu privacidad. Puedes darte de baja en cualquier momento."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter Premium"
+    }
+  ]
+}
+{% endschema %}

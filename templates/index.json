@@ -1,49 +1,15 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "image_banner_GjDBrG": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_eFTiN7": {
-          "type": "heading",
-          "settings": {
-            "heading": "<em> Ciencia y naturaleza, contigo</em>",
-            "heading_size": "h2"
-          }
-        },
-        "text_9Bw7Pg": {
-          "type": "text",
-          "settings": {
-            "text": "<em><strong>Cada gota, cada textura, cada aroma, pensado para tu bienestar.</strong></em>",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "heading_eFTiN7",
-        "text_9Bw7Pg"
-      ],
-      "name": "t:sections.image-banner.presets.name",
+    "premium-hero": {
+      "type": "premium-hero",
       "settings": {
-        "image": "shopify://shop_images/ibnu-ihza-Z7u2bpbE65Q-unsplash.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "",
-        "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
+        "hero_badge": "Nueva Colección 2024",
+        "hero_title": "Tu piel merece <em>rituales intencionales</em>",
+        "hero_subtitle": "Formulaciones botánicas de laboratorio. Ingredientes puros que transforman tu piel y elevan tu bienestar diario.",
+        "hero_button_text": "Explorar Colección",
+        "hero_button_link": "/collections",
+        "hero_button_text_2": "Nuestra Filosofía",
+        "hero_button_link_2": "/pages/about"
       }
     },
     "philosophy": {
@@ -52,14 +18,14 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Nuestra filosofia",
+            "heading": "Nuestra Filosofía",
             "heading_size": "h2"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>En Serenne creemos que el cuidado personal debe ser intencional. Cada formulacion es el resultado de una busqueda incansable de ingredientes puros, procesos sostenibles y eficacia comprobada.</p>"
+            "text": "<p>En Serenne creemos que el cuidado personal debe ser intencional. Cada formulación es el resultado de una búsqueda incansable de ingredientes puros, procesos sostenibles y eficacia comprobada.</p>"
           }
         }
       },
@@ -76,12 +42,19 @@
         "padding_bottom": 52
       }
     },
+    "premium-benefits": {
+      "type": "premium-benefits",
+      "settings": {
+        "section_label": "Beneficios",
+        "section_title": "Por qué elegir Serenne"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
         "collection": "all",
         "products_to_show": 8,
-        "title": "Descubrir",
+        "title": "Best Sellers",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -104,64 +77,40 @@
         "padding_bottom": 36
       }
     },
-    "values": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Ingredientes Puros",
-            "text": "<p>Seleccionados por su pureza y eficacia comprobada. Sin parabenos, sin sulfatos, sin compromiso.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Envio Premium",
-            "text": "<p>Envio gratuito en pedidos mayores a $50. Embalaje discreto y sostenible.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Garantia Total",
-            "text": "<p>Si no estas satisfecho, te devolvemos tu dinero. Sin preguntas.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+    "premium-testimonials": {
+      "type": "premium-testimonials",
       "settings": {
-        "title": "Por Que Serenne",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "Button label",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "section_label": "Testimonios",
+        "section_title": "Lo que dice nuestra comunidad"
+      }
+    },
+    "premium-faq": {
+      "type": "premium-faq",
+      "settings": {
+        "section_label": "FAQ",
+        "section_title": "Preguntas frecuentes",
+        "section_text": "Todo lo que necesitas saber sobre nuestros productos y rutinas."
+      }
+    },
+    "premium-newsletter": {
+      "type": "premium-newsletter",
+      "settings": {
+        "section_label": "Newsletter",
+        "section_title": "Únete a nuestro círculo",
+        "section_text": "Recibe acceso anticipado a nuevos lanzamientos, rituales de cuidado personal y un 10% de descuento en tu primera compra.",
+        "placeholder": "Tu correo electrónico",
+        "button_text": "Suscribirse",
+        "privacy_text": "Respetamos tu privacidad. Puedes darte de baja en cualquier momento."
       }
     }
   },
   "order": [
-    "image_banner_GjDBrG",
+    "premium-hero",
     "philosophy",
+    "premium-benefits",
     "featured_collection",
-    "values"
+    "premium-testimonials",
+    "premium-faq",
+    "premium-newsletter"
   ]
 }

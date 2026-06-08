@@ -1,0 +1,131 @@
+{{ 'premium-custom.css' | asset_url | stylesheet_tag }}
+
+<section class="testimonials section" id="testimonials-{{ section.id }}">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      {% if section.settings.section_label != blank %}
+        <span class="section-label">{{ section.settings.section_label }}</span>
+      {% endif %}
+      {% if section.settings.section_title != blank %}
+        <h2>{{ section.settings.section_title }}</h2>
+      {% endif %}
+    </div>
+    
+    <div class="testimonials-grid stagger-group">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <div class="testimonial-stars">
+            {% for i in (1..5) %}
+              <svg viewBox="0 0 24 24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            {% endfor %}
+          </div>
+          <p class="testimonial-text">{{ block.settings.text }}</p>
+          <div class="testimonial-author">
+            {% if block.settings.avatar != blank %}
+              <img src="{{ block.settings.avatar | image_url: width: 100 }}" alt="{{ block.settings.name }}" class="testimonial-avatar" width="48" height="48" loading="lazy">
+            {% else %}
+              <img src="https://ui-avatars.com/api/?name={{ block.settings.name | url_encode }}&background=C9A96E&color=fff&size=100" alt="{{ block.settings.name }}" class="testimonial-avatar" width="48" height="48" loading="lazy">
+            {% endif %}
+            <div>
+              <div class="testimonial-name">{{ block.settings.name }}</div>
+              {% if block.settings.verified %}
+                <div class="testimonial-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                  Compra verificada
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials Premium",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Testimonios"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Lo que dice nuestra comunidad"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonial Text",
+          "default": "Amazing product! My skin has never felt better."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Author Name",
+          "default": "Customer Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified Purchase",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials Premium",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "El sérum de vitamina C es increíble. Mi piel brilla como nunca. La textura es perfecta, se absorbe al instante.",
+            "name": "Ana López",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "La crema hidratante es pura lujuria. Se funde con la piel y la deja sedosa todo el día. Mi favorita absoluta.",
+            "name": "Carla Ruiz",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "El empaque es hermoso, sostenible y cada detalle importa. Serenne entiende que el cuidado personal es un ritual.",
+            "name": "Laura Martín",
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

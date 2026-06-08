@@ -1,0 +1,126 @@
+{{ 'premium-custom.css' | asset_url | stylesheet_tag }}
+
+<section class="hero" id="hero-{{ section.id }}">
+  <div class="hero-background">
+    {% if section.settings.hero_image != blank %}
+      <img 
+        src="{{ section.settings.hero_image | image_url: width: 1920 }}" 
+        alt="{{ section.settings.hero_image.alt | default: 'Serenne' }}"
+        class="hero-image"
+        loading="eager"
+        width="1920"
+        height="1080"
+      >
+    {% else %}
+      <img 
+        src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1920&h=1080&fit=crop" 
+        alt="Serenne - Skincare Premium"
+        class="hero-image"
+        loading="eager"
+        width="1920"
+        height="1080"
+      >
+    {% endif %}
+    <div class="hero-overlay"></div>
+  </div>
+  
+  <div class="hero-content">
+    {% if section.settings.hero_badge != blank %}
+      <div class="hero-badge animate-fade-in-up">
+        <span>{{ section.settings.hero_badge }}</span>
+      </div>
+    {% endif %}
+    
+    {% if section.settings.hero_title != blank %}
+      <h1 class="hero-title animate-fade-in-up animate-delay-1">
+        {{ section.settings.hero_title }}
+      </h1>
+    {% endif %}
+    
+    {% if section.settings.hero_subtitle != blank %}
+      <p class="hero-subtitle animate-fade-in-up animate-delay-2">
+        {{ section.settings.hero_subtitle }}
+      </p>
+    {% endif %}
+    
+    <div class="hero-cta animate-fade-in-up animate-delay-3">
+      {% if section.settings.hero_button_text != blank %}
+        <a href="{{ section.settings.hero_button_link | default: '/collections' }}" class="btn btn-primary">
+          {{ section.settings.hero_button_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.hero_button_text_2 != blank %}
+        <a href="{{ section.settings.hero_button_link_2 | default: '/pages/about' }}" class="btn btn-secondary" style="border-color: white; color: white;">
+          {{ section.settings.hero_button_text_2 }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+  
+  <div class="hero-scroll">
+    <span>Descubre</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    </svg>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Premium",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Background Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_badge",
+      "label": "Badge Text",
+      "default": "Nueva Colección 2024"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "Tu piel merece <em>rituales intencionales</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Hero Subtitle",
+      "default": "Formulaciones botánicas de laboratorio. Ingredientes puros que transforman tu piel y elevan tu bienestar diario."
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text",
+      "label": "Primary Button Text",
+      "default": "Explorar Colección"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "hero_button_text_2",
+      "label": "Secondary Button Text",
+      "default": "Nuestra Filosofía"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link_2",
+      "label": "Secondary Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Premium"
+    }
+  ]
+}
+{% endschema %}

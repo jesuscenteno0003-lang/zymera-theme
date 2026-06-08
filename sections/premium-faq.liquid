@@ -1,0 +1,123 @@
+{{ 'premium-custom.css' | asset_url | stylesheet_tag }}
+
+<section class="faq section" id="faq-{{ section.id }}">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-header reveal">
+        {% if section.settings.section_label != blank %}
+          <span class="section-label">{{ section.settings.section_label }}</span>
+        {% endif %}
+        {% if section.settings.section_title != blank %}
+          <h2>{{ section.settings.section_title }}</h2>
+        {% endif %}
+        {% if section.settings.section_text != blank %}
+          <p class="mt-16">{{ section.settings.section_text }}</p>
+        {% endif %}
+      </div>
+      
+      <div class="faq-list">
+        {% for block in section.blocks %}
+          <div class="faq-item" {{ block.shopify_attributes }}>
+            <button class="faq-question">
+              {{ block.settings.question }}
+              <span class="faq-icon"></span>
+            </button>
+            <div class="faq-answer">
+              <p>{{ block.settings.answer }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FAQ Premium",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "FAQ"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Preguntas frecuentes"
+    },
+    {
+      "type": "textarea",
+      "id": "section_text",
+      "label": "Section Text",
+      "default": "Todo lo que necesitas saber sobre nuestros productos y rutinas."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I know which products are right for my skin?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "We recommend starting with our online diagnosis test. You can also contact our expert team for a free personalized consultation."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Premium",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cómo sé qué productos son adecuados para mi tipo de piel?",
+            "answer": "Recomendamos comenzar con nuestro test de diagnóstico online. También puedes contactar a nuestro equipo de expertos para una consultoría personalizada sin costo."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Los productos son aptos para pieles sensibles?",
+            "answer": "Todos nuestros productos están formulados sin fragancias sintéticas, parabenos ni sulfatos. Son testados dermatológicamente y aptos para pieles sensibles."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuánto tiempo tarda en verse resultados?",
+            "answer": "La mayoría de nuestros clientes notan mejoras visibles en 2-4 semanas. Para resultados óptimos, recomendamos usar los productos consistentemente durante 8-12 semanas."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Ofrecen muestras gratis?",
+            "answer": "Sí, con cada pedido incluimos muestras de otros productos para que puedas descubrir nuevos favoritos."
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "¿Cuál es su política de devoluciones?",
+            "answer": "Si no estás satisfecho con tu compra, tienes 30 días para devolver el producto sin preguntas. Nosotros cubrimos el costo del envío de devolución."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

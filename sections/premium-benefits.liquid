@@ -1,0 +1,147 @@
+{{ 'premium-custom.css' | asset_url | stylesheet_tag }}
+
+<section class="benefits section" id="benefits-{{ section.id }}">
+  <div class="container">
+    <div class="benefits-header reveal">
+      {% if section.settings.section_label != blank %}
+        <span class="section-label">{{ section.settings.section_label }}</span>
+      {% endif %}
+      {% if section.settings.section_title != blank %}
+        <h2>{{ section.settings.section_title }}</h2>
+      {% endif %}
+    </div>
+    
+    <div class="benefits-grid stagger-group">
+      {% for block in section.blocks %}
+        <div class="benefit-card" {{ block.shopify_attributes }}>
+          <div class="benefit-icon">
+            {% case block.settings.icon %}
+              {% when 'heart' %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              {% when 'shield' %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              {% when 'truck' %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="1" y="3" width="15" height="13"/>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                  <circle cx="5.5" cy="18.5" r="2.5"/>
+                  <circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
+              {% when 'check' %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                  <line x1="9" y1="9" x2="9.01" y2="9"/>
+                  <line x1="15" y1="9" x2="15.01" y2="9"/>
+                </svg>
+            {% endcase %}
+          </div>
+          <h3 class="benefit-title">{{ block.settings.title }}</h3>
+          <p class="benefit-text">{{ block.settings.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Benefits Premium",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Beneficios"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Por qué elegir Serenne"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Shield" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "heart"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Benefit Title"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Benefit description goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits Premium",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "heart",
+            "title": "Formulaciones Botánicas",
+            "text": "Combina lo mejor de la ciencia con extractos botánicos de origen responsable."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "shield",
+            "title": "Sin Compromiso",
+            "text": "Libre de parabenos, sulfatos, ftalatos y fragancias sintéticas."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "truck",
+            "title": "Envío Premium",
+            "text": "Embalaje discreto, sostenible y envío gratuito en pedidos +S/. 200."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "check",
+            "title": "Garantía Total",
+            "text": "Si no estás satisfecho, te devolvemos tu dinero. Sin preguntas."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
