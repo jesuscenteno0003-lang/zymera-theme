@@ -22,8 +22,8 @@
         "footer-2": {
           "type": "text",
           "settings": {
-            "heading": "Nuestra Filosofia",
-            "subtext": "<p>Formulaciones botanicas y de laboratorio de la mas fina calidad. Ingredientes puros, resultados comprobables.</p>"
+            "heading": "Nuestra Filosofía",
+            "subtext": "<p>Formulaciones botánicas y de laboratorio de la más fina calidad. Ingredientes puros, resultados comprobables.</p>"
           }
         }
       },
@@ -31,7 +31,7 @@
       "settings": {
         "color_scheme": "scheme-4",
         "newsletter_enable": true,
-        "newsletter_heading": "Suscribete para recibir novedades",
+        "newsletter_heading": "Suscríbete para recibir novedades",
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,

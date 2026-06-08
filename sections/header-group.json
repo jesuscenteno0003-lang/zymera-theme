@@ -8,7 +8,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Envio gratuito en pedidos superiores a $50",
+            "text": "Envío gratuito en pedidos superiores a S/. 200",
             "text_alignment": "center",
             "color_scheme": "scheme-4",
             "link": ""

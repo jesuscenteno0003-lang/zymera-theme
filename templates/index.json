@@ -12,7 +12,7 @@
     "premium-hero": {
       "type": "premium-hero",
       "settings": {
-        "hero_badge": "Nueva Colección 2024",
+        "hero_badge": "Nueva Colección 2025",
         "hero_title": "Tu piel merece <em>rituales intencionales</em>",
         "hero_subtitle": "Formulaciones botánicas de laboratorio. Ingredientes puros que transforman tu piel y elevan tu bienestar diario.",
         "hero_button_text": "Explorar Colección",
@@ -43,7 +43,6 @@
         "text"
       ],
       "settings": {
-        "image": "shopify://shopify/MediaImage/45168107422009",
         "height": "adapt",
         "layout": "text_first",
         "desktop_image_width": "medium",
@@ -99,15 +98,7 @@
       }
     },
     "instagram-feed": {
-      "type": "instagram-feed",
-      "settings": {
-        "title": "@serenne",
-        "button_label": "Síguenos en Instagram",
-        "button_link": "https://instagram.com/serenne",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "color_scheme": "scheme-1"
-      }
+      "type": "instagram-feed"
     },
     "premium-faq": {
       "type": "premium-faq",
