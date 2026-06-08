@@ -100,52 +100,6 @@
     },
     "instagram-feed": {
       "type": "instagram-feed",
-      "blocks": {
-        "insta-1": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shopify/MediaImage/45168106832185"
-          }
-        },
-        "insta-2": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shopify/MediaImage/45168107389241"
-          }
-        },
-        "insta-3": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shopify/MediaImage/45168109519161"
-          }
-        },
-        "insta-4": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shopify/MediaImage/45168107127097"
-          }
-        },
-        "insta-5": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shopify/MediaImage/45168106996025"
-          }
-        },
-        "insta-6": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shopify/MediaImage/45168107323705"
-          }
-        }
-      },
-      "block_order": [
-        "insta-1",
-        "insta-2",
-        "insta-3",
-        "insta-4",
-        "insta-5",
-        "insta-6"
-      ],
       "settings": {
         "title": "@serenne",
         "button_label": "Síguenos en Instagram",
