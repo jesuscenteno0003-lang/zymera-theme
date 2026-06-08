@@ -1375,3 +1375,318 @@ details[open] .faq-question::after {
   line-height: 1.8 !important;
   color: var(--s-mocha) !important;
 }
+
+/* Collection header */
+.collection-hero__title {
+  font-family: var(--f-heading) !important;
+  font-weight: 300 !important;
+  font-size: 2.5rem !important;
+  letter-spacing: 0.02em !important;
+  color: var(--s-dark) !important;
+  margin-bottom: var(--space-s) !important;
+}
+
+/* Collection grid */
+.collection .product-grid {
+  gap: var(--space-l) !important;
+}
+
+.collection .card-wrapper {
+  transition: transform 0.4s var(--ease) !important;
+}
+
+.collection .card-wrapper:hover {
+  transform: translateY(-4px) !important;
+}
+
+.collection .card__heading {
+  font-family: var(--f-heading) !important;
+  font-weight: 400 !important;
+  font-size: 1rem !important;
+}
+
+.collection .card__heading a {
+  color: var(--s-dark) !important;
+  transition: color 0.3s var(--ease) !important;
+}
+
+.collection .card__heading a:hover {
+  color: var(--s-gold) !important;
+}
+
+.collection .price-item {
+  font-weight: 300 !important;
+  color: var(--s-brown) !important;
+}
+
+/* Filter sidebar */
+.facets__summary {
+  font-family: var(--f-body) !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: var(--s-brown) !important;
+}
+
+.facets__disclosure {
+  border: 1px solid var(--s-beige) !important;
+  border-radius: 0 !important;
+  padding: var(--space-s) var(--space-m) !important;
+}
+
+.facets__header {
+  border-bottom: none !important;
+}
+
+/* Sort dropdown */
+.facets__sort {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--s-brown) !important;
+}
+
+/* Pagination */
+.pagination {
+  font-size: 0.8rem !important;
+  letter-spacing: 0.1em !important;
+}
+
+.pagination a {
+  color: var(--s-brown) !important;
+  border: 1px solid var(--s-beige) !important;
+  border-radius: 0 !important;
+  padding: 10px 16px !important;
+  transition: all 0.3s var(--ease) !important;
+}
+
+.pagination a:hover {
+  border-color: var(--s-dark) !important;
+  color: var(--s-dark) !important;
+}
+
+.pagination__item--active {
+  background: var(--s-dark) !important;
+  color: var(--s-ivory) !important;
+  border-color: var(--s-dark) !important;
+}
+
+/* --- PRODUCT PAGE OVERRIDES --- */
+.product__info-container {
+  padding: var(--space-xxl) 0 var(--space-xxl) var(--space-xl) !important;
+}
+
+.product__info-wrapper h1 {
+  font-family: var(--f-heading) !important;
+  font-size: 2rem !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.02em !important;
+  line-height: 1.25 !important;
+  color: var(--s-dark) !important;
+  margin-bottom: var(--space-xs) !important;
+}
+
+/* Vendor label */
+.product__text--uppercase {
+  font-family: var(--f-body) !important;
+  font-size: 0.65rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--s-taupe) !important;
+  margin-bottom: var(--space-s) !important;
+}
+
+/* Subtitle */
+.product__text--subtitle {
+  font-size: 0.9375rem !important;
+  color: var(--s-mocha) !important;
+  font-weight: 300 !important;
+  margin-bottom: var(--space-m) !important;
+}
+
+/* Price */
+.product__info-container .price {
+  font-family: var(--f-body) !important;
+  font-size: 1.25rem !important;
+  font-weight: 300 !important;
+  color: var(--s-dark) !important;
+  margin-bottom: var(--space-m) !important;
+}
+
+.product__info-container .price--compare-at {
+  color: var(--s-taupe) !important;
+}
+
+/* Variant picker */
+.product-variant-picker .product__input label {
+  font-size: 0.7rem !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: var(--s-taupe) !important;
+  margin-bottom: var(--space-xs) !important;
+}
+
+.product-variant-picker .product__input input[type="radio"] + label {
+  border: 1px solid var(--s-beige) !important;
+  border-radius: 0 !important;
+  padding: 10px 20px !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.1em !important;
+  transition: all 0.3s var(--ease) !important;
+}
+
+.product-variant-picker .product__input input[type="radio"]:checked + label {
+  border-color: var(--s-dark) !important;
+  color: var(--s-dark) !important;
+}
+
+/* Quantity selector */
+.quantity {
+  border: 1px solid var(--s-beige) !important;
+  border-radius: 0 !important;
+}
+
+.quantity__button {
+  font-size: 1rem !important;
+  color: var(--s-brown) !important;
+}
+
+.quantity__input {
+  font-family: var(--f-body) !important;
+  font-size: 0.875rem !important;
+  font-weight: 300 !important;
+}
+
+/* Buy buttons */
+.product-form__submit {
+  background: transparent !important;
+  border: 1px solid var(--s-dark) !important;
+  color: var(--s-dark) !important;
+  font-family: var(--f-body) !important;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  padding: 16px 40px !important;
+  border-radius: 0 !important;
+  transition: all 0.4s var(--ease) !important;
+}
+
+.product-form__submit:hover {
+  background: var(--s-dark) !important;
+  color: var(--s-ivory) !important;
+}
+
+/* Dynamic checkout buttons */
+.shopify-payment-button {
+  margin-top: var(--space-s) !important;
+}
+
+.shopify-payment-button button {
+  border-radius: 0 !important;
+  font-family: var(--f-body) !important;
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 14px 30px !important;
+}
+
+/* Description */
+.product__description {
+  font-size: 0.9375rem !important;
+  line-height: 1.8 !important;
+  color: var(--s-mocha) !important;
+  margin: var(--space-m) 0 !important;
+}
+
+/* Collapsible tabs */
+.accordion {
+  border-top: 1px solid var(--s-beige) !important;
+  border-bottom: 1px solid var(--s-beige) !important;
+}
+
+.accordion__title {
+  font-family: var(--f-body) !important;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.15em !important;
+  text-transform: uppercase !important;
+  color: var(--s-brown) !important;
+  padding: var(--space-m) 0 !important;
+}
+
+.accordion__title:hover {
+  color: var(--s-gold) !important;
+}
+
+.accordion__icon--plus {
+  transition: transform 0.3s var(--ease) !important;
+}
+
+details[open] .accordion__icon--plus {
+  transform: rotate(45deg) !important;
+}
+
+.accordion__content {
+  font-size: 0.875rem !important;
+  line-height: 1.8 !important;
+  color: var(--s-mocha) !important;
+  padding-bottom: var(--space-m) !important;
+}
+
+/* Share button */
+.share-button {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--s-taupe) !important;
+  border: 1px solid var(--s-beige) !important;
+  padding: 10px 20px !important;
+  border-radius: 0 !important;
+  transition: all 0.3s var(--ease) !important;
+}
+
+.share-button:hover {
+  border-color: var(--s-dark) !important;
+  color: var(--s-dark) !important;
+}
+
+/* Media gallery */
+.product__media-wrapper {
+  padding: var(--space-xxl) var(--space-xl) var(--space-xxl) 0 !important;
+}
+
+.product__media-wrapper img {
+  border-radius: 0 !important;
+}
+
+/* View full details link */
+.product__view-details {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--s-taupe) !important;
+  margin-top: var(--space-m) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: color 0.3s var(--ease) !important;
+}
+
+.product__view-details:hover {
+  color: var(--s-gold) !important;
+}
+
+/* Related products */
+.product-recommendations {
+  padding: var(--space-xxl) 0 !important;
+}
+
+.product-recommendations .heading {
+  font-family: var(--f-heading) !important;
+  font-weight: 300 !important;
+  font-size: 1.75rem !important;
+  letter-spacing: 0.02em !important;
+  color: var(--s-dark) !important;
+}
