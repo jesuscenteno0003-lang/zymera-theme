@@ -94,7 +94,8 @@
       "type": "premium-testimonials",
       "settings": {
         "section_label": "Testimonios",
-        "section_title": "Lo que dice nuestra comunidad"
+        "section_title": "Lo que dice nuestra comunidad",
+        "color_scheme": "scheme-1"
       }
     },
     "instagram-feed": {
@@ -157,7 +158,8 @@
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 36,
-        "padding_bottom": 36
+        "padding_bottom": 36,
+        "color_scheme": "scheme-1"
       }
     },
     "premium-faq": {
