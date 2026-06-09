@@ -8,9 +8,13 @@
 <!-- COLLECTION HERO -->
 <section class="collection-hero" style="min-height: 40vh;">
   <div class="collection-hero-bg">
-    <img src="{{ collection.image | image_url: width: 1600 | default: 'https://cdn.shopify.com/s/files/1/0904/6002/files/collection-hero.jpg?v=1234567890' }}" 
-         alt="{{ collection.title }}"
-         loading="eager">
+    {% if collection.image != blank %}
+      <img src="{{ collection.image | image_url: width: 1600 }}" 
+           alt="{{ collection.title }}"
+           loading="eager">
+    {% else %}
+      <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #4a3f6b 0%, #292524 100%);"></div>
+    {% endif %}
   </div>
   <div class="collection-hero-overlay"></div>
   <div class="collection-hero-content">
@@ -62,9 +66,15 @@
         {% for product in collection.products %}
           <a href="{{ product.url }}" class="product-card reveal" style="text-decoration: none;">
             <div class="product-card-image">
-              <img src="{{ product.featured_image | image_url: width: 600 }}" 
-                   alt="{{ product.title }}"
-                   loading="lazy">
+              {% if product.featured_image != blank %}
+                <img src="{{ product.featured_image | image_url: width: 600 }}" 
+                     alt="{{ product.title }}"
+                     loading="lazy">
+              {% else %}
+                <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center;">
+                  <span style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #4a3f6b; opacity: 0.3;">{{ product.title | slice: 0, 1 }}</span>
+                </div>
+              {% endif %}
             </div>
             <div class="product-card-category">{{ product.type | default: "RITUAL" }}</div>
             <div class="product-card-name">{{ product.title }}</div>

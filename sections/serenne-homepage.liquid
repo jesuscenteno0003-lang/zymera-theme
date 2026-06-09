@@ -211,49 +211,43 @@
     </div>
     
     <div class="grid grid-4">
-      <div class="product-card reveal">
-        <div class="product-card-image">
-          <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/eucalipto.jpg?v=1234567890" 
-               alt="Eucalipto Premium"
-               loading="lazy">
-        </div>
-        <div class="product-card-category">RITUAL DE ENERGÍA</div>
-        <div class="product-card-name">Eucalipto Premium</div>
-        <div class="product-card-price">S/. 89.00</div>
-      </div>
+      {% for product in collections['aromaterapia'].products limit: 2 %}
+        <a href="{{ product.url }}" class="product-card reveal" style="text-decoration: none;">
+          <div class="product-card-image">
+            {% if product.featured_image != blank %}
+              <img src="{{ product.featured_image | image_url: width: 400 }}" 
+                   alt="{{ product.title }}"
+                   loading="lazy">
+            {% else %}
+              <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #4a3f6b; opacity: 0.2;">{{ product.title | slice: 0, 1 }}</span>
+              </div>
+            {% endif %}
+          </div>
+          <div class="product-card-category">{{ product.type | default: "RITUAL" }}</div>
+          <div class="product-card-name">{{ product.title }}</div>
+          <div class="product-card-price">{{ product.price | money }}</div>
+        </a>
+      {% endfor %}
 
-      <div class="product-card reveal reveal-delay-1">
-        <div class="product-card-image">
-          <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/lavanda.jpg?v=1234567890" 
-               alt="Lavanda Zen"
-               loading="lazy">
-        </div>
-        <div class="product-card-category">RITUAL DE CALMA</div>
-        <div class="product-card-name">Lavanda Zen</div>
-        <div class="product-card-price">S/. 79.00</div>
-      </div>
-
-      <div class="product-card reveal reveal-delay-2">
-        <div class="product-card-image">
-          <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/colageno.jpg?v=1234567890" 
-               alt="Colágeno Hidrolizado"
-               loading="lazy">
-        </div>
-        <div class="product-card-category">RITUAL DE BELLEZA</div>
-        <div class="product-card-name">Colágeno Hidrolizado</div>
-        <div class="product-card-price">S/. 129.00</div>
-      </div>
-
-      <div class="product-card reveal reveal-delay-3">
-        <div class="product-card-image">
-          <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/cojin.jpg?v=1234567890" 
-               alt="Cojín de Meditación"
-               loading="lazy">
-        </div>
-        <div class="product-card-category">RITUAL DE EQUILIBRIO</div>
-        <div class="product-card-name">Cojín de Meditación</div>
-        <div class="product-card-price">S/. 149.00</div>
-      </div>
+      {% for product in collections['bienestar'].products limit: 2 %}
+        <a href="{{ product.url }}" class="product-card reveal" style="text-decoration: none;">
+          <div class="product-card-image">
+            {% if product.featured_image != blank %}
+              <img src="{{ product.featured_image | image_url: width: 400 }}" 
+                   alt="{{ product.title }}"
+                   loading="lazy">
+            {% else %}
+              <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center;">
+                <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #4a3f6b; opacity: 0.2;">{{ product.title | slice: 0, 1 }}</span>
+              </div>
+            {% endif %}
+          </div>
+          <div class="product-card-category">{{ product.type | default: "RITUAL" }}</div>
+          <div class="product-card-name">{{ product.title }}</div>
+          <div class="product-card-price">{{ product.price | money }}</div>
+        </a>
+      {% endfor %}
     </div>
     
     <div class="text-center mt-2xl reveal">

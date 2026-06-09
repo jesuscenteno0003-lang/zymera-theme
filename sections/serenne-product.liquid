@@ -20,9 +20,15 @@
       <!-- MEDIA GALLERY -->
       <div class="product-media reveal">
         <div class="product-main-image">
-          <img src="{{ product.featured_image | image_url: width: 800 }}" 
-               alt="{{ product.title }}"
-               loading="eager">
+          {% if product.featured_image != blank %}
+            <img src="{{ product.featured_image | image_url: width: 800 }}" 
+                 alt="{{ product.title }}"
+                 loading="eager">
+          {% else %}
+            <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'Playfair Display', serif; font-size: 4rem; color: #4a3f6b; opacity: 0.2;">{{ product.title | slice: 0, 1 }}</span>
+            </div>
+          {% endif %}
         </div>
         {% if product.images.size > 1 %}
           <div class="product-thumbnails">
@@ -132,9 +138,15 @@
         {% for product in collections.all.products limit: 3 %}
           <div class="product-card reveal">
             <div class="product-card-image">
-              <img src="{{ product.featured_image | image_url: width: 400 }}" 
-                   alt="{{ product.title }}"
-                   loading="lazy">
+              {% if product.featured_image != blank %}
+                <img src="{{ product.featured_image | image_url: width: 400 }}" 
+                     alt="{{ product.title }}"
+                     loading="lazy">
+              {% else %}
+                <div style="width: 100%; aspect-ratio: 1; background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center;">
+                  <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #4a3f6b; opacity: 0.2;">{{ product.title | slice: 0, 1 }}</span>
+                </div>
+              {% endif %}
             </div>
             <div class="product-card-category">{{ product.type | default: "RITUAL" }}</div>
             <div class="product-card-name">{{ product.title }}</div>
