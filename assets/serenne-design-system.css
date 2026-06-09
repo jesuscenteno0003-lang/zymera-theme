@@ -590,6 +590,18 @@ button {
 }
 
 /* === PHILOSOPHY === */
+/* Hero overrides — force single-column dark hero */
+.hero {
+  display: flex !important;
+  grid-template-columns: none !important;
+}
+.hero-content {
+  background: transparent !important;
+}
+.hero-image-wrap {
+  display: none !important;
+}
+
 .philosophy {
   padding: var(--sp-4xl) 0;
   text-align: center;
