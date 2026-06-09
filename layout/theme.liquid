@@ -380,9 +380,9 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- comment -%}
-      Dawn cart-drawer.js removed — using custom serenne-cart-drawer.liquid
-    {%- endcomment -%}
+    {%- if settings.cart_type == 'drawer' -%}
+      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
 
     {%- comment -%}
       Organization schema moved to sections/header.liquid (more complete with sameAs, logo)
