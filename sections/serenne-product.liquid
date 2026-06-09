@@ -278,24 +278,9 @@ document.querySelectorAll('.variant-option').forEach(btn => {
 
 // Add to cart
 document.getElementById('add-to-cart').addEventListener('click', () => {
-  // Shopify AJAX API
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      items: [{
-        id: {{ product.selected_or_first_available_variant.id }},
-        quantity: parseInt(document.getElementById('quantity').textContent)
-      }]
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    // Open cart drawer
-    document.querySelector('.cart-overlay').classList.add('active');
-    document.querySelector('.cart-drawer').classList.add('active');
-  })
-  .catch(err => console.error('Error:', err));
+  const variantId = {{ product.selected_or_first_available_variant.id }};
+  const qty = parseInt(document.getElementById('quantity').textContent);
+  addToCart(variantId, qty);
 });
 </script>
 
