@@ -15,6 +15,10 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -24,6 +28,8 @@
 
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
+    {% elsif request.page_type == 'index' %}
+      <meta name="description" content="Serenne - Skincare y bienestar premium en Perú. Aceites esenciales, suplementos y rituales de autocuidado con ingredientes puros y resultados verificables.">
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -292,6 +298,7 @@
     {%- endif -%}
 
     <!-- Premium CSS & JS -->
+    {{ 'serenne-design-system.css' | asset_url | stylesheet_tag }}
     {{ 'premium-custom.min.css' | asset_url | stylesheet_tag }}
     <script src="{{ 'premium-scripts.js' | asset_url }}" defer="defer"></script>
 
@@ -308,16 +315,16 @@
     </a>
 
     {%- if settings.cart_type == 'drawer' -%}
-      {%- render 'cart-drawer' -%}
+      {%- render 'serenne-cart-drawer' -%}
     {%- endif -%}
 
-    {% sections 'header-group' %}
+    {% render 'serenne-header' %}
 
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    {% render 'serenne-footer' %}
 
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
@@ -373,13 +380,30 @@
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    {%- if settings.cart_type == 'drawer' -%}
-      <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
-    {%- endif -%}
+    {%- comment -%}
+      Dawn cart-drawer.js removed — using custom serenne-cart-drawer.liquid
+    {%- endcomment -%}
 
     {%- comment -%}
       Organization schema moved to sections/header.liquid (more complete with sameAs, logo)
       Product schema uses {{ product | structured_data }} in sections/main-product.liquid
     {%- endcomment -%}
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var reveals = document.querySelectorAll('.reveal');
+        if (reveals.length > 0 && 'IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.15 });
+          reveals.forEach(function(el) { observer.observe(el); });
+        }
+      });
+    </script>
   </body>
 </html>

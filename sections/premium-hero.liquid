@@ -1,30 +1,27 @@
 <section class="hero" id="hero-{{ section.id }}">
-  <div class="hero-background">
+  <div class="hero-image-wrap">
     {% if section.settings.hero_image != blank %}
       <img 
-        src="{{ section.settings.hero_image | image_url: width: 1920 }}" 
+        src="{{ section.settings.hero_image | image_url: width: 1200 }}" 
         alt="{{ section.settings.hero_image.alt | default: 'Serenne' }}"
-        class="hero-image"
         loading="eager"
-        width="1920"
-        height="1080"
+        width="1200"
+        height="1600"
       >
     {% else %}
       <img 
         src="https://cdn.shopify.com/s/files/1/0998/6283/9609/files/hero-lifestyle_jpg.jpg?v=1780878588" 
-        alt="Serenne - Skincare Premium"
-        class="hero-image"
+        alt="Serenne — Skincare Premium"
         loading="eager"
-        width="1920"
-        height="1080"
+        width="1200"
+        height="1600"
       >
     {% endif %}
-    <div class="hero-overlay"></div>
   </div>
   
   <div class="hero-content">
-    {%- comment -%} Force Spanish text regardless of cached settings {%- endcomment -%}
-    {% assign hero_badge = 'Nueva Colección 2025' %}
+    {%- comment -%} Force Spanish {%- endcomment -%}
+    {% assign hero_badge = 'Nueva Colección 2026' %}
     {% assign hero_title = 'Tu piel merece <em>rituales intencionales</em>' %}
     {% assign hero_subtitle = 'Formulaciones botánicas de laboratorio. Ingredientes puros que transforman tu piel y elevan tu bienestar diario.' %}
     {% assign hero_button_text = 'Explorar Colección' %}
@@ -32,23 +29,23 @@
     {% assign hero_button_text_2 = 'Nuestra Filosofía' %}
     {% assign hero_button_link_2 = '/pages/about' %}
 
-    <div class="hero-badge animate-fade-in-up">
+    <div class="hero-badge reveal">
       <span>{{ hero_badge }}</span>
     </div>
 
-    <h1 class="hero-title animate-fade-in-up animate-delay-1">
+    <h1 class="hero-title reveal">
       {{ hero_title }}
     </h1>
 
-    <p class="hero-subtitle animate-fade-in-up animate-delay-2">
+    <p class="hero-subtitle reveal">
       {{ hero_subtitle }}
     </p>
 
-    <div class="hero-cta animate-fade-in-up animate-delay-3">
-      <a href="{{ hero_button_link }}" class="btn btn-primary">
+    <div class="hero-cta reveal">
+      <a href="{{ hero_button_link }}" class="btn btn--filled">
         {{ hero_button_text }}
       </a>
-      <a href="{{ hero_button_link_2 }}" class="btn btn-secondary" style="border-color: white; color: white;">
+      <a href="{{ hero_button_link_2 }}" class="btn">
         {{ hero_button_text_2 }}
       </a>
     </div>
@@ -56,8 +53,9 @@
   
   <div class="hero-scroll">
     <span>Descubre</span>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 5v14M19 12l-7 7-7-7"/>
+    <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1">
+      <rect x="1" y="1" width="14" height="22" rx="7" />
+      <line x1="8" y1="6" x2="8" y2="10" />
     </svg>
   </div>
 </section>
@@ -77,7 +75,7 @@
       "type": "text",
       "id": "hero_badge",
       "label": "Badge Text",
-      "default": "Nueva Colección 2024"
+      "default": "Nueva Colección 2026"
     },
     {
       "type": "textarea",

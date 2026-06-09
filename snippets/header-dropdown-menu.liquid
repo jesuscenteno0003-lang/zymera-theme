@@ -13,14 +13,17 @@
     {%- capture menu_map -%}{{ menu_map }}{{ parts[0] }}::{{ parts[1] }}|{%- endcapture -%}
   {%- endfor -%}
   <ul class="list-menu list-menu--inline" role="list">
+    {%- assign rendered_urls = '' | split: '' -%}
     {%- for link in section.settings.menu.links -%}
-      {%- assign translated_title = link.title -%}
-      {%- for t in menu_translations -%}
-        {%- assign parts = t | split: '=' -%}
-        {%- if link.title == parts[0] -%}
-          {%- assign translated_title = parts[1] -%}
-        {%- endif -%}
-      {%- endfor -%}
+      {%- unless rendered_urls contains link.url -%}
+        {%- assign rendered_urls = rendered_urls | push: link.url -%}
+        {%- assign translated_title = link.title -%}
+        {%- for t in menu_translations -%}
+          {%- assign parts = t | split: '=' -%}
+          {%- if link.title == parts[0] -%}
+            {%- assign translated_title = parts[1] -%}
+          {%- endif -%}
+        {%- endfor -%}
       <li>
         {%- if link.links != blank -%}
           <header-menu>
@@ -111,6 +114,7 @@
           </a>
         {%- endif -%}
       </li>
+      {%- endunless -%}
     {%- endfor -%}
   </ul>
 </nav>

@@ -1,0 +1,226 @@
+<!-- ================================================================
+     SERENNE — CART DRAWER
+     Trust + Ritual + Garantía
+     ================================================================ -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<div class="cart-drawer" id="cartDrawer">
+  <!-- HEADER -->
+  <div class="cart-header">
+    <div class="cart-title">Tu Carrito <span class="cart-count" id="cartCount">(0 items)</span></div>
+    <button class="cart-close" onclick="closeCart()">×</button>
+  </div>
+
+  <!-- SHIPPING PROGRESS -->
+  <div class="cart-shipping">
+    <div class="cart-shipping-text" id="shippingText">Agrega productos para envío gratuito</div>
+    <div class="cart-progress">
+      <div class="cart-progress-fill" id="shippingProgress" style="width: 0%;"></div>
+    </div>
+  </div>
+
+  <!-- ITEMS -->
+  <div class="cart-items" id="cartItems">
+    <div class="text-center" style="padding: var(--sp-3xl) 0; color: var(--s-taupe);">
+      <div style="font-size: 2rem; margin-bottom: var(--sp-m);">🛒</div>
+      <p class="body">Tu carrito está vacío</p>
+      <p class="caption mt-s">Explora nuestros rituales y comienza tu ceremonia de bienestar.</p>
+      <a href="/collections" class="btn-primary mt-l" style="display: inline-flex;">Explorar rituales</a>
+    </div>
+  </div>
+
+  <!-- TRUST BADGES -->
+  <div class="cart-trust">
+    <div class="cart-trust-item">🔒 Pago seguro</div>
+    <div class="cart-trust-item">📦 Envío confiable</div>
+    <div class="cart-trust-item">↩️ 30 días</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cart-footer" id="cartFooter" style="display: none;">
+    <p class="cart-message">Tu próximo ritual está a un paso</p>
+    
+    <button class="btn-gold cart-checkout-btn" id="checkoutBtn">
+      Finalizar compra
+    </button>
+    
+    <a href="/collections" class="cart-continue" onclick="closeCart(); return true;">
+      ← Seguir explorando rituales
+    </a>
+    
+    <!-- PAYMENT ICONS -->
+    <div class="cart-payments">
+      <div class="cart-payment-icon">VISA</div>
+      <div class="cart-payment-icon">MC</div>
+      <div class="cart-payment-icon">AMEX</div>
+      <div class="cart-payment-icon">PP</div>
+    </div>
+    
+    <!-- TRUST BADGES -->
+    <div class="cart-trust-badges">
+      <span>🔒 Compra 100% segura</span>
+      <span>📦 Entrega garantizada</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// Cart state
+let cart = {
+  items: [],
+  total: 0,
+  item_count: 0
+};
+
+// Open cart
+function openCart() {
+  document.getElementById('cartOverlay').classList.add('active');
+  document.getElementById('cartDrawer').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  loadCart();
+}
+
+// Close cart
+function closeCart() {
+  document.getElementById('cartOverlay').classList.remove('active');
+  document.getElementById('cartDrawer').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Load cart via AJAX
+function loadCart() {
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(data => {
+      cart = data;
+      renderCart();
+      updateShippingProgress();
+    })
+    .catch(err => console.error('Error loading cart:', err));
+}
+
+// Render cart items
+function renderCart() {
+  const container = document.getElementById('cartItems');
+  const footer = document.getElementById('cartFooter');
+  const countEl = document.getElementById('cartCount');
+  
+  countEl.textContent = `(${cart.item_count} ${cart.item_count === 1 ? 'artículo' : 'artículos'})`;
+  
+  if (cart.item_count === 0) {
+    container.innerHTML = `
+      <div class="text-center" style="padding: var(--sp-3xl) 0; color: var(--s-taupe);">
+        <div style="font-size: 2rem; margin-bottom: var(--sp-m);">🛒</div>
+        <p class="body">Tu carrito está vacío</p>
+        <p class="caption mt-s">Explora nuestros rituales y comienza tu ceremonia de bienestar.</p>
+        <a href="/collections" class="btn-primary mt-l" style="display: inline-flex;">Explorar rituales</a>
+      </div>
+    `;
+    footer.style.display = 'none';
+    return;
+  }
+  
+  let html = '';
+  cart.items.forEach(item => {
+    html += `
+      <div class="cart-item">
+        <div class="cart-item-image">
+          <img src="${item.image}" alt="${item.title}" loading="lazy">
+        </div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.title}</div>
+          <div class="cart-item-variant">${item.variant_title || ''}</div>
+          <div class="cart-item-price">S/. ${(item.price / 100).toFixed(2)}</div>
+          <div class="cart-item-actions">
+            <div class="cart-item-qty">
+              <button onclick="updateQuantity(${item.key}, ${item.quantity - 1})">−</button>
+              <span>${item.quantity}</span>
+              <button onclick="updateQuantity(${item.key}, ${item.quantity + 1})">+</button>
+            </div>
+            <button class="cart-item-remove" onclick="removeItem(${item.key})">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  
+  container.innerHTML = html;
+  footer.style.display = 'block';
+  
+  // Update checkout button
+  document.getElementById('checkoutBtn').textContent = `Finalizar compra — S/. ${(cart.total_price / 100).toFixed(2)}`;
+}
+
+// Update shipping progress
+function updateShippingProgress() {
+  const freeShippingThreshold = 20000; // $200 in cents
+  const currentTotal = cart.total_price;
+  const progress = Math.min((currentTotal / freeShippingThreshold) * 100, 100);
+  
+  const progressEl = document.getElementById('shippingProgress');
+  const textEl = document.getElementById('shippingText');
+  
+  progressEl.style.width = `${progress}%`;
+  
+  if (currentTotal >= freeShippingThreshold) {
+    textEl.textContent = '¡Envío gratuito!';
+    progressEl.style.background = 'var(--s-sage)';
+  } else {
+    const remaining = ((freeShippingThreshold - currentTotal) / 100).toFixed(2);
+    textEl.textContent = `Te faltan S/. ${remaining} para envío gratuito`;
+  }
+}
+
+// Update quantity
+function updateQuantity(key, quantity) {
+  if (quantity < 1) {
+    removeItem(key);
+    return;
+  }
+  
+  fetch('/cart/change.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id: key, quantity: quantity })
+  })
+  .then(res => res.json())
+  .then(data => {
+    cart = data;
+    renderCart();
+    updateShippingProgress();
+  })
+  .catch(err => console.error('Error:', err));
+}
+
+// Remove item
+function removeItem(key) {
+  updateQuantity(key, 0);
+}
+
+// Add to cart from product page
+function addToCart(variantId, quantity = 1) {
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      items: [{ id: variantId, quantity: quantity }]
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    openCart();
+  })
+  .catch(err => console.error('Error:', err));
+}
+
+// Checkout
+document.getElementById('checkoutBtn').addEventListener('click', () => {
+  window.location.href = '/checkout';
+});
+
+// Close on escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCart();
+});
+</script>

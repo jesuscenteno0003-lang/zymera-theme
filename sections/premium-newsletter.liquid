@@ -1,14 +1,14 @@
 <section class="newsletter section" id="newsletter-{{ section.id }}">
   <div class="container">
-    {%- comment -%} Force Spanish text {%- endcomment -%}
+    {%- comment -%} Force Spanish {%- endcomment -%}
     {% assign section_label = 'Newsletter' %}
     {% assign section_title = 'Únete a nuestro círculo' %}
     {% assign section_text = 'Recibe acceso anticipado a nuevos lanzamientos, rituales de cuidado personal y un 10% de descuento en tu primera compra.' %}
     {% assign placeholder = 'Tu correo electrónico' %}
     {% assign button_text = 'Suscribirse' %}
     {% assign privacy_text = 'Respetamos tu privacidad. Puedes darte de baja en cualquier momento.' %}
-    <div class="newsletter-inner reveal">
-      <span class="section-label" style="color: var(--serenne-gold-light);">{{ section_label }}</span>
+    <div class="reveal">
+      <span class="section-label">{{ section_label }}</span>
       <h2 class="newsletter-title">{{ section_title }}</h2>
       <p class="newsletter-text">{{ section_text }}</p>
       
