@@ -5,11 +5,7 @@
 
 <!-- 1. HERO -->
 <section class="hero" data-section="hero">
-  <div class="hero-bg">
-    <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/serenne-hero-ritual.jpg?v=1234567890" 
-         alt="Ritual de bienestar Serenne"
-         loading="eager">
-  </div>
+  <div class="hero-bg" style="background: linear-gradient(135deg, #4a3f6b 0%, #292524 50%, #1a1714 100%);"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="label hero-label">SERENNE</div>
@@ -46,10 +42,8 @@
     <div class="grid grid-3">
       <!-- AMANECER -->
       <div class="ritual-card reveal">
-        <div class="ritual-card-image">
-          <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/ritual-amanecer.jpg?v=1234567890" 
-               alt="Ritual de amanecer"
-               loading="lazy">
+        <div class="ritual-card-image" style="background: linear-gradient(135deg, #E8DDD3 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center; aspect-ratio: 4/3;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 48px; height: 48px; opacity: 0.3;"><use href="#icon-leaf"/></svg>
         </div>
         <div class="ritual-card-body">
           <div class="label mb-s">AMANECER</div>
@@ -58,72 +52,77 @@
           <a href="/collections/aromaterapia" class="btn-ghost" style="padding-left:0;">Comenzar ritual →</a>
           
           <div class="ritual-card-products">
-            <div class="ritual-product-mini">
-              <div class="ritual-product-mini-img">🌿</div>
-              <span class="ritual-product-mini-name">Eucalipto Andino</span>
-              <span class="ritual-product-mini-price">S/. 89</span>
-            </div>
-            <div class="ritual-product-mini">
-              <div class="ritual-product-mini-img">🍊</div>
-              <span class="ritual-product-mini-name">Naranja Dulce</span>
-              <span class="ritual-product-mini-price">S/. 75</span>
-            </div>
+            {% for product in collections['aromaterapia'].products limit: 2 %}
+              <a href="{{ product.url }}" class="ritual-product-mini" style="text-decoration: none; color: inherit;">
+                <div class="ritual-product-mini-img" style="background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px;">
+                  {% if product.featured_image != blank %}
+                    <img src="{{ product.featured_image | image_url: width: 80 }}" alt="{{ product.title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                  {% else %}
+                    <span style="font-family: 'Playfair Display', serif; font-size: 0.75rem; color: #4a3f6b; opacity: 0.3;">{{ product.title | slice: 0, 1 }}</span>
+                  {% endif %}
+                </div>
+                <span class="ritual-product-mini-name">{{ product.title }}</span>
+                <span class="ritual-product-mini-price">{{ product.price | money }}</span>
+              </a>
+            {% endfor %}
           </div>
         </div>
       </div>
 
       <!-- MEDIODÍA -->
       <div class="ritual-card reveal reveal-delay-1">
-        <div class="ritual-card-image">
-          <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/ritual-mediodia.jpg?v=1234567890" 
-               alt="Ritual de mediodía"
-               loading="lazy">
+        <div class="ritual-card-image" style="background: linear-gradient(135deg, #E8E0D8 0%, #C9BFB4 100%); display: flex; align-items: center; justify-content: center; aspect-ratio: 4/3;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 48px; height: 48px; opacity: 0.3;"><use href="#icon-heart"/></svg>
         </div>
         <div class="ritual-card-body">
           <div class="label mb-s">MEDIODÍA</div>
           <h3 class="ritual-card-title">Pausa consciente</h3>
           <p class="ritual-card-desc">Equilibrio para continuar. Un momento para respirar, reconectar y seguir con claridad.</p>
-          <a href="/collections/aromaterapia" class="btn-ghost" style="padding-left:0;">Comenzar ritual →</a>
+          <a href="/collections/bienestar" class="btn-ghost" style="padding-left:0;">Comenzar ritual →</a>
           
           <div class="ritual-card-products">
-            <div class="ritual-product-mini">
-              <div class="ritual-product-mini-img">💜</div>
-              <span class="ritual-product-mini-name">Lavanda de Altura</span>
-              <span class="ritual-product-mini-price">S/. 79</span>
-            </div>
-            <div class="ritual-product-mini">
-              <div class="ritual-product-mini-img">🌱</div>
-              <span class="ritual-product-mini-name">Menta Fresca</span>
-              <span class="ritual-product-mini-price">S/. 72</span>
-            </div>
+            {% for product in collections['bienestar'].products limit: 2 %}
+              <a href="{{ product.url }}" class="ritual-product-mini" style="text-decoration: none; color: inherit;">
+                <div class="ritual-product-mini-img" style="background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px;">
+                  {% if product.featured_image != blank %}
+                    <img src="{{ product.featured_image | image_url: width: 80 }}" alt="{{ product.title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                  {% else %}
+                    <span style="font-family: 'Playfair Display', serif; font-size: 0.75rem; color: #4a3f6b; opacity: 0.3;">{{ product.title | slice: 0, 1 }}</span>
+                  {% endif %}
+                </div>
+                <span class="ritual-product-mini-name">{{ product.title }}</span>
+                <span class="ritual-product-mini-price">{{ product.price | money }}</span>
+              </a>
+            {% endfor %}
           </div>
         </div>
       </div>
 
       <!-- ANOCHECER -->
       <div class="ritual-card reveal reveal-delay-2">
-        <div class="ritual-card-image">
-          <img src="https://cdn.shopify.com/s/files/1/0904/6002/files/ritual-noche.jpg?v=1234567890" 
-               alt="Ritual de anochecer"
-               loading="lazy">
+        <div class="ritual-card-image" style="background: linear-gradient(135deg, #D4C8B8 0%, #A89B8C 100%); display: flex; align-items: center; justify-content: center; aspect-ratio: 4/3;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 48px; height: 48px; opacity: 0.3;"><use href="#icon-star"/></svg>
         </div>
         <div class="ritual-card-body">
           <div class="label mb-s">ANOCHECER</div>
           <h3 class="ritual-card-title">Cierra el día con gratitud</h3>
           <p class="ritual-card-desc">Calma para terminar. Rituales que preparan tu descanso y abrazan tu cuerpo.</p>
-          <a href="/collections/aromaterapia" class="btn-ghost" style="padding-left:0;">Comenzar ritual →</a>
+          <a href="/collections/sueno-descanso" class="btn-ghost" style="padding-left:0;">Comenzar ritual →</a>
           
           <div class="ritual-card-products">
-            <div class="ritual-product-mini">
-              <div class="ritual-product-mini-img">🌙</div>
-              <span class="ritual-product-mini-name">Lavanda Zen</span>
-              <span class="ritual-product-mini-price">S/. 79</span>
-            </div>
-            <div class="ritual-product-mini">
-              <div class="ritual-product-mini-img">🕯️</div>
-              <span class="ritual-product-mini-name">Vela de Sándalo</span>
-              <span class="ritual-product-mini-price">S/. 65</span>
-            </div>
+            {% for product in collections['sueno-descanso'].products limit: 2 %}
+              <a href="{{ product.url }}" class="ritual-product-mini" style="text-decoration: none; color: inherit;">
+                <div class="ritual-product-mini-img" style="background: linear-gradient(135deg, #F5F0EB 0%, #D6CFC7 100%); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 4px;">
+                  {% if product.featured_image != blank %}
+                    <img src="{{ product.featured_image | image_url: width: 80 }}" alt="{{ product.title }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+                  {% else %}
+                    <span style="font-family: 'Playfair Display', serif; font-size: 0.75rem; color: #4a3f6b; opacity: 0.3;">{{ product.title | slice: 0, 1 }}</span>
+                  {% endif %}
+                </div>
+                <span class="ritual-product-mini-name">{{ product.title }}</span>
+                <span class="ritual-product-mini-price">{{ product.price | money }}</span>
+              </a>
+            {% endfor %}
           </div>
         </div>
       </div>
@@ -141,19 +140,27 @@
     
     <div class="benefits-grid reveal reveal-delay-2">
       <div class="benefit-item">
-        <div class="benefit-icon">🌿</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 28px; height: 28px;"><use href="#icon-leaf"/></svg>
+        </div>
         <div class="benefit-text">Ingredientes cuidadosamente seleccionados</div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">✨</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 28px; height: 28px;"><use href="#icon-star"/></svg>
+        </div>
         <div class="benefit-text">Inspirado en rituales de bienestar</div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">💎</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 28px; height: 28px;"><use href="#icon-perfume"/></svg>
+        </div>
         <div class="benefit-text">Calidad premium en cada gota</div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">🔒</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 28px; height: 28px;"><use href="#icon-lock"/></svg>
+        </div>
         <div class="benefit-text">Compra 100% segura</div>
       </div>
     </div>
@@ -178,22 +185,30 @@
       
       <div class="grid grid-2 reveal reveal-delay-1">
         <div class="ingredient-item">
-          <div class="ingredient-icon">💜</div>
+          <div class="ingredient-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-heart"/></svg>
+          </div>
           <div class="ingredient-name">Lavanda de Altura</div>
           <div class="ingredient-origin">De los valles de Junín, a 3,400 metros</div>
         </div>
         <div class="ingredient-item">
-          <div class="ingredient-icon">🌼</div>
+          <div class="ingredient-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-star"/></svg>
+          </div>
           <div class="ingredient-name">Manzanilla Seleccionada</div>
           <div class="ingredient-origin">Cosecha artesanal en los Andes</div>
         </div>
         <div class="ingredient-item">
-          <div class="ingredient-icon">🌿</div>
+          <div class="ingredient-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-leaf"/></svg>
+          </div>
           <div class="ingredient-name">Eucalipto Andino</div>
           <div class="ingredient-origin">Bosques nativos de la sierra central</div>
         </div>
         <div class="ingredient-item">
-          <div class="ingredient-icon">🌹</div>
+          <div class="ingredient-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-perfume"/></svg>
+          </div>
           <div class="ingredient-name">Rosa Mosqueta</div>
           <div class="ingredient-origin">De la sierra central peruana</div>
         </div>
@@ -266,22 +281,30 @@
     
     <div class="grid grid-4 reveal reveal-delay-1">
       <div class="text-center" style="padding: var(--sp-xl);">
-        <div style="font-size: 2rem; margin-bottom: var(--sp-m);">💎</div>
+        <div style="margin-bottom: var(--sp-m);">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 32px; height: 32px;"><use href="#icon-perfume"/></svg>
+        </div>
         <div style="font-size: 0.9375rem; font-weight: 500; color: var(--s-ivory); margin-bottom: var(--sp-xs);">Calidad</div>
         <div style="font-size: 0.8125rem; color: rgba(253,251,247,0.6); line-height: 1.6;">Ingredientes puros que transforman tu piel y tu día.</div>
       </div>
       <div class="text-center" style="padding: var(--sp-xl);">
-        <div style="font-size: 2rem; margin-bottom: var(--sp-m);">🎯</div>
+        <div style="margin-bottom: var(--sp-m);">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 32px; height: 32px;"><use href="#icon-heart"/></svg>
+        </div>
         <div style="font-size: 0.9375rem; font-weight: 500; color: var(--s-ivory); margin-bottom: var(--sp-xs);">Intención</div>
         <div style="font-size: 0.8125rem; color: rgba(253,251,247,0.6); line-height: 1.6;">Cada producto creado con propósito, no por tendencia.</div>
       </div>
       <div class="text-center" style="padding: var(--sp-xl);">
-        <div style="font-size: 2rem; margin-bottom: var(--sp-m);">🌿</div>
+        <div style="margin-bottom: var(--sp-m);">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 32px; height: 32px;"><use href="#icon-leaf"/></svg>
+        </div>
         <div style="font-size: 0.9375rem; font-weight: 500; color: var(--s-ivory); margin-bottom: var(--sp-xs);">Bienestar</div>
         <div style="font-size: 0.8125rem; color: rgba(253,251,247,0.6); line-height: 1.6;">Una experiencia completa que va más allá de lo físico.</div>
       </div>
       <div class="text-center" style="padding: var(--sp-xl);">
-        <div style="font-size: 2rem; margin-bottom: var(--sp-m);">🤝</div>
+        <div style="margin-bottom: var(--sp-m);">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 32px; height: 32px;"><use href="#icon-chat-bubble"/></svg>
+        </div>
         <div style="font-size: 0.9375rem; font-weight: 500; color: var(--s-ivory); margin-bottom: var(--sp-xs);">Confianza</div>
         <div style="font-size: 0.8125rem; color: rgba(253,251,247,0.6); line-height: 1.6;">Tu satisfacción es nuestra mayor recompensa.</div>
       </div>
@@ -345,19 +368,27 @@
   <div class="container">
     <div class="benefits-grid">
       <div class="benefit-item">
-        <div class="benefit-icon">📦</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-truck"/></svg>
+        </div>
         <div class="benefit-text">Envío gratuito +S/.200</div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">🔒</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-lock"/></svg>
+        </div>
         <div class="benefit-text">Pago 100% seguro</div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">↩️</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-return"/></svg>
+        </div>
         <div class="benefit-text">Devoluciones 30 días</div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-icon">💬</div>
+        <div class="benefit-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" style="width: 24px; height: 24px;"><use href="#icon-chat-bubble"/></svg>
+        </div>
         <div class="benefit-text">Atención personalizada</div>
       </div>
     </div>
