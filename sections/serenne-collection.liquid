@@ -43,12 +43,9 @@
   <div class="container">
     <div class="filters-bar">
       <div class="filters-pills">
-        <a href="{{ collection.url }}" class="filter-pill {% unless current_tags %}active{% endunless %}">Todos</a>
-        {% for tag in collection.tags limit: 6 %}
-          <a href="{{ collection.url }}/tagged/{{ tag | handleize }}" 
-             class="filter-pill {% if current_tags contains tag %}active{% endif %}">
-            {{ tag }}
-          </a>
+        <a href="{{ collection.url }}" class="filter-pill active">Todos</a>
+        {% for tag in collection.tags limit: 4 %}
+          <span class="filter-pill" style="cursor: default; opacity: 0.6;">{{ tag }}</span>
         {% endfor %}
       </div>
       <div style="font-size: 0.75rem; color: var(--s-taupe);">
