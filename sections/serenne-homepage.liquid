@@ -19,6 +19,8 @@
   .hero-overlay::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(26,23,20,0.3) 0%, transparent 50%, rgba(74,63,107,0.15) 100%); pointer-events: none; }
   .hero-content { background: transparent !important; position: relative; z-index: 2; padding: 120px 0 80px; }
   .hero-image-wrap { display: none !important; }
+  .philosophy-bg { position: relative; background: url('{{ "imagendeprueba.jpg" | asset_url }}') center/cover no-repeat fixed; }
+  .philosophy-overlay { position: absolute; inset: 0; background: rgba(253,251,247,0.88); z-index: 1; }
   .ritual-card-image { border-radius: 8px 8px 0 0; overflow: hidden; }
   .ritual-card-image img { width: 100%; height: 100%; object-fit: cover; }
   .ritual-product-mini { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
@@ -48,8 +50,9 @@
 </section>
 
 <!-- 2. FILOSOFÍA DE MARCA -->
-<section class="philosophy section" data-section="philosophy">
-  <div class="container">
+<section class="philosophy section philosophy-bg" data-section="philosophy">
+  <div class="philosophy-overlay"></div>
+  <div class="container" style="position: relative; z-index: 2;">
     <div class="label mb-l text-center reveal">FILOSOFÍA</div>
     <h2 class="philosophy-quote reveal reveal-delay-1">"No vendemos productos."</h2>
     <p class="philosophy-text body-lg reveal reveal-delay-2">Creamos pequeños rituales para ayudarte a detener el ruido y reconectar contigo.</p>
