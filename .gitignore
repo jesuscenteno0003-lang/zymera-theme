@@ -1,0 +1,25 @@
+# ─── Shopify ───
+config/settings_data.json
+
+# ─── Imágenes grandes ───
+*.psd
+*.ai
+*.tiff
+*.bmp
+*.raw
+
+# ─── Archivos de sistema ───
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Node / dependencias ───
+node_modules/
+package-lock.json
+yarn.lock
+
+# ─── Logs y temporales ───
+*.log
+.env
+.env.local
+.tmp
